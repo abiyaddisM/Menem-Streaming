@@ -2,14 +2,59 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import { MoveSliderComponent } from './components/move-slider/move-slider.component';
+import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
+import { HomePageComponent } from './pages/home-page/home-page.component';
+import { MiniInfoComponent } from './components/mini-info/mini-info.component';
+import { MainRecCardsComponent } from './components/main-rec-cards/main-rec-cards.component';
+import { TransparentButtonComponent } from './components/buttons/transparent-button/transparent-button.component';
+import {NgOptimizedImage} from "@angular/common";
+import { SliderSecIndComponent } from './components/slider-sec-ind/slider-sec-ind.component';
+import { IconButtonComponent } from './components/buttons/icon-button/icon-button.component';
+import { CardShowCaseComponent } from './components/card-show-case/card-show-case.component';
+import { CardsComponent } from './components/cards/cards.component';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { SearchComponent } from './pages/search/search.component';
+import { SearchCardComponent } from './components/search-card/search-card.component';
+import { NaviationSideBarComponent } from './components/naviation-side-bar/naviation-side-bar.component';
+import { ViewPageComponent } from './pages/view-page/view-page.component';
+import { PlaylistPageComponent } from './pages/playlist-page/playlist-page.component';
+import { AboutPageComponent } from './pages/about-page/about-page.component';
+import {Routes} from "@angular/router";
+import {AppRoutingModule} from "./app-routing.module";
+import { SideNavigationButtonComponent } from './components/buttons/side-navigation-button/side-navigation-button.component';
+import {HttpClientModule} from "@angular/common/http";
+
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MoveSliderComponent,
+    NavigationBarComponent,
+    HomePageComponent,
+    MiniInfoComponent,
+    MainRecCardsComponent,
+    TransparentButtonComponent,
+    SliderSecIndComponent,
+    IconButtonComponent,
+    CardShowCaseComponent,
+    CardsComponent,
+    SearchComponent,
+    SearchCardComponent,
+    NaviationSideBarComponent,
+    ViewPageComponent,
+    PlaylistPageComponent,
+    AboutPageComponent,
+    SideNavigationButtonComponent
   ],
-  imports: [
-    BrowserModule
-  ],
+    imports: [
+        BrowserModule,
+        NgOptimizedImage,
+        BrowserAnimationsModule,
+        AppRoutingModule,
+        HttpClientModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

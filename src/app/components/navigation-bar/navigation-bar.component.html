@@ -1,0 +1,28 @@
+<app-search [searchToggle] = 'searchToggle'  (booleanChange) = 'toggleSearch()'></app-search>
+<app-naviation-side-bar [sideBarToggle] = 'sideBarToggle' (booleanChange) = 'toggleSideBar()' class="n-b-side-bar-button"></app-naviation-side-bar>
+<nav class="nav-container">
+  <div class="nav-wrapper">
+    <div class="n-b-logo-container">
+      <img class="n-b-menu-button" src="assets/Icons/menu.svg" alt="" (click)="toggleSideBar()">
+
+      <div class="logo" routerLink="/">
+<!--        <h4>Menem</h4>-->
+      </div>
+    </div>
+
+    <ul class="nav-ul">
+      <a class="nav-a" routerLinkActive="nav-active" routerLink="/home">Home</a>
+      <a class="nav-a" routerLinkActive="nav-active" routerLink="/playlist">Playlists</a>
+      <a class="nav-a" routerLinkActive="nav-active" routerLink="/about">About</a>
+    </ul>
+    <div class="nav-left">
+      <app-icon-button class="nav-search" (click)="toggleSearch()"></app-icon-button>
+      <app-icon-button class="nav-notification" link="assets/Icons/notification.svg"></app-icon-button>
+      <a href="" class="nav-profile">
+        <img src="assets/Icons/profile-icon.png" alt="">
+      </a>
+    </div>
+  </div>
+
+</nav>
+

@@ -1,1 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  box-sizing:border-box;
+  outline:none;
+  border:none;
+  text-decoration:none;
+}
+body{
+  background-color: #191A1F;
+}
+@font-face {
+  font-family: 'SpaceFont';
+  src: url('assets/Fonts/NeonFuture20Demo-L3jp3.otf') format('truetype'); /* Adjust the path and format as needed */
+}

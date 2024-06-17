@@ -1,0 +1,8 @@
+<section class="c-s-c-container">
+  <div class="c-s-c-wrapper">
+    <h2 class="c-s-c-title">Trending Now</h2>
+    <div class="c-c-c-card-container">
+      <app-cards *ngFor="let card of cardsData" [title]="checkTitle(card)" [id]="card.id" [imageUrl]="'https://image.tmdb.org/t/p/w300' + card.poster_path" [rating]="card.vote_average" [genre]="card.genre_ids"/>
+    </div>
+  </div>
+</section>

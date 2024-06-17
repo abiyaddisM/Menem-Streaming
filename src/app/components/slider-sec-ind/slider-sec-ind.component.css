@@ -1,0 +1,20 @@
+.circle-wrapper{
+  display: flex;
+  gap: 8px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.circle-wrapper .circle{
+  width: clamp(5px,0.8vw,7px);
+  height: clamp(5px,0.8vw,7px);
+  border-radius: 8px;
+  background-color: #7C7C7C;
+  transition: 0.3s;
+}
+.circle-wrapper .active{
+  background-color: white;
+  width: 30px;
+  transition: 0.3s;
+}
+

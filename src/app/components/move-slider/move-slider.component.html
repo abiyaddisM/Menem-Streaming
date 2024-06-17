@@ -1,0 +1,11 @@
+<section>
+  <div class="slider-wrapper">
+    <div class="gradient-cover"></div>
+    <div class="slider" (scroll)="onScroll($event)">
+      <app-main-rec-cards class="main-rec-card" [imageUrl]="s" *ngFor="let s of slides"/>
+    </div>
+  </div>
+  <div class="slider-sec-ind-wrapper">
+    <app-slider-sec-ind  [active]="currentSlide"/>
+  </div>
+</section>

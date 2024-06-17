@@ -1,0 +1,18 @@
+<div @fadeInOut class="temp" *ngIf="searchToggle">
+  <div class="s-container">
+    <div class="s-close-container">
+      <button (click)="toggleSearch()">Close</button>
+    </div>
+    <div class="s-wrapper">
+      <img src="assets/Icons/search2.svg" alt="">
+      <input class="s-input" placeholder="Search">
+    </div>
+    <div class="s-card-container">
+      <h4 class="s-card-history">History</h4>
+      <div class="s-card-wrapper">
+        <app-search-card [title]="card.title" [imageUrl]="card.image" [genre]="card.genre" [rating]="card.rating" *ngFor="let card of cards"></app-search-card>
+      </div>
+    </div>
+  </div>
+  <div class="s-cover" (click)="toggleSearch()"></div>
+</div>

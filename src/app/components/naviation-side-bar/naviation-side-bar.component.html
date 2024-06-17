@@ -1,0 +1,14 @@
+<div class="n-s-b-container" *ngIf="sideBarToggle" @slideInOut>
+  <div class="n-s-b-close-cover" (click)="toggleSideBar()"></div>
+ <div class="n-s-b-wrapper">
+   <div class="n-b-logo-container">
+     <img class="n-s-b-menu-button" src="assets/Icons/menu.svg" alt="" (click)="toggleSideBar()">
+     <div class="logo"></div>
+   </div>
+   <div class="n-s-b-button-container">
+     <app-side-navigation-button (click)="toggleSideBar()" router_Link="/home" [isActive]="true" name="Home" icon="assets/Icons/home.svg"></app-side-navigation-button>
+     <app-side-navigation-button (click)="toggleSideBar()" router_Link="/playlist" name="Playlist" icon="assets/Icons/bookmark.svg"></app-side-navigation-button>
+     <app-side-navigation-button (click)="toggleSideBar()" router_Link="/about" name="About" icon="assets/Icons/about.svg"></app-side-navigation-button>
+   </div>
+ </div>
+</div>

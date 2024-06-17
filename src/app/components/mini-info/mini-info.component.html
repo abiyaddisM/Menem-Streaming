@@ -1,0 +1,19 @@
+<div class="m-i-container" >
+  <div  class="m-i-wrapper" *ngFor="let min of miniInfo; let i = index">
+    <img *ngIf="i == 0 && checkRating()" src="assets/Icons/star.svg" alt="">
+    <h4 *ngIf="i == 0 && checkRating()" class="m-info" [ngStyle]="{'font-size': 'clamp('+ sizeMinTwo(size) + 'px,' + '0.85vw,'+ size +'px'}" >{{Math.round(rating * 10) / 10}}</h4>
+    <div *ngIf="i == 0 && checkRating()" class="m-i-block"></div>
+    <div *ngIf="i < 1 && time != ''"  class="m-i-wrapper" >
+      <div class="m-info" [ngStyle]="{'font-size': 'clamp('+ sizeMinTwo(size) + 'px,' + '0.9vw,'+ size +'px'}">{{time}}</div>
+      <div *ngIf="i < miniInfo.length - 1 && i < 1" class="circle"></div>
+    </div>
+
+    <div *ngIf="i < 1 && year != ''" class="m-i-wrapper" >
+      <div class="m-info" [ngStyle]="{'font-size': 'clamp('+ sizeMinTwo(size) + 'px,' + '0.9vw,'+ size +'px'}">{{year}}</div>
+      <div *ngIf="i < miniInfo.length - 1 && i < 1" class="circle" ></div>
+    </div>
+    <h4 class="m-info" *ngIf="i < 2"  [ngStyle]="{'font-size': 'clamp('+ sizeMinTwo(size) + 'px,' + '0.9vw,'+ size +'px'}" >{{getGenreName(min)}}</h4>
+    <div *ngIf="i < miniInfo.length - 1 && i < 1" class="circle"></div>
+  </div>
+</div>
+

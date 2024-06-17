@@ -1,0 +1,79 @@
+.temp{
+  width: 100%;
+  height: 120vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  z-index: 140;
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.btn{
+  position: absolute;
+  right: 0;
+  margin: 3vh 3vw;
+}
+.s-cover{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 141;
+}
+.s-container{
+  width: min(1550px,90%);
+  height: 100%;
+  z-index: 142;
+  margin-top: clamp(2%,5vw,10vh);
+
+}
+.s-close-container{
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+.s-close-container button{
+  margin-right: 20px;
+  padding: 10px 20px;
+  background-color: rgba(88, 89, 96, 0.97);
+  color: white;
+  border-radius: 20px;
+  transition: 0.2s;
+}
+.s-close-container button:hover {
+  background-color: rgba(71, 74, 87, 0.97);
+  transition: 0.2s;
+}
+.s-wrapper{
+  background-color: rgba(70, 70, 70, 0.53);
+  padding: clamp(16px,3vw,20px) max(20px,2.2%);
+  border-radius: 35px;
+  display: flex;
+  gap: 10px;
+}
+.s-input{
+  width: 100%;
+  color: white;
+  font-size: clamp(14px,2.4vw,16px);
+  background-color: transparent;
+
+}
+.s-card-container{
+  margin: 20px clamp(0%,2vw,40px) ;
+  height: 100%;
+  overflow: auto;
+
+}
+.s-card-container .s-card-history{
+  color: white;
+  font-weight: 500;
+  margin-bottom: 25px;
+}
+.s-card-wrapper{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

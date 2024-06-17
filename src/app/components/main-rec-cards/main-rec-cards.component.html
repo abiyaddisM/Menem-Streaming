@@ -1,0 +1,13 @@
+<div class="m-r-c-container" [ngStyle]="{'background-image': 'url('+ imageUrl +')'}">
+  <div class="text-wrapper">
+    <h2>{{title}}</h2>
+    <app-mini-info [subtract]="2" year="2020" time="2h30m"></app-mini-info>
+    <p>
+      {{description}}
+    </p>
+    <div class="button-wrapper">
+      <app-transparent-button></app-transparent-button>
+      <app-transparent-button text="Add Playlist" iconImg="assets/Icons/playlist.svg"></app-transparent-button>
+    </div>
+  </div>
+</div>
