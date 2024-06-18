@@ -1,0 +1,26 @@
+<section class="s-i-p-section-container" [ngStyle]="{'background-image': 'url(https://image.tmdb.org/t/p/original/5CPuNvSueKbCmltTzLAe8AiYS3u.jpg)'}">
+  <div class="s-i-p-cover"></div>
+  <div class="s-i-p-container">
+    <div class="s-i-p-container-2">
+      <div class="s-i-p-image" [ngStyle]="{'background-image': 'url(https://image.tmdb.org/t/p/original/5CPuNvSueKbCmltTzLAe8AiYS3u.jpg)'}">
+        <div class="s-i-p-cover-2"></div>
+      </div>
+      <form [formGroup]="form" (ngSubmit)="submit()"  class="s-i-p-wrapper" >
+          <div class="s-i-p-title-container">
+            <h1 class="s-i-p-main-title">Welcome Back</h1>
+            <h2 class="s-i-p-second-title">Welcome Back. Pleas enter your details</h2>
+          </div>
+          <app-input-field formControlName="email" placeholder="Email">
+            <div *ngIf="form.get('email')?.touched && form.get('email')?.invalid" class="s-i-p-alert">Email is required</div>
+          </app-input-field>
+          <app-input-field formControlName="password" placeholder="Password" [isPassword]="true">
+            <div *ngIf="form.get('password')?.touched && form.get('password')?.invalid" class="s-i-p-alert">Password is required</div>
+          </app-input-field>
+          <button class="s-i-p-button" type="submit" >Sign In</button>
+          <p class="s-i-p-sign-up-text">Don’t have an account? <a routerLink="/sign-up" class="s-i-p-sign-up-button">Sign Up</a></p>
+          <div class="s-i-p-line"></div>
+          <button class="s-i-p-button2" routerLink="/" >Continue As Guest</button>
+      </form>
+    </div>
+  </div>
+</section>

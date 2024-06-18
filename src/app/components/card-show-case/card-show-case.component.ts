@@ -8,6 +8,7 @@ import {Component, Input} from '@angular/core';
 
 export class CardShowCaseComponent {
   @Input() cardsData:any
+  @Input() showTitle = true
   constructor() {
     console.log(this.cardsData)
   }

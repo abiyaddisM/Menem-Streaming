@@ -24,6 +24,9 @@ import {Routes} from "@angular/router";
 import {AppRoutingModule} from "./app-routing.module";
 import { SideNavigationButtonComponent } from './components/buttons/side-navigation-button/side-navigation-button.component';
 import {HttpClientModule} from "@angular/common/http";
+import { SignInPageComponent } from './pages/sign-in-page/sign-in-page.component';
+import { InputFieldComponent } from './components/input-field/input-field.component';
+import {FormControl, FormGroup, FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 
 
@@ -46,14 +49,18 @@ import {HttpClientModule} from "@angular/common/http";
     ViewPageComponent,
     PlaylistPageComponent,
     AboutPageComponent,
-    SideNavigationButtonComponent
+    SideNavigationButtonComponent,
+    SignInPageComponent,
+    InputFieldComponent
   ],
     imports: [
         BrowserModule,
         NgOptimizedImage,
         BrowserAnimationsModule,
         AppRoutingModule,
-        HttpClientModule
+        HttpClientModule,
+        FormsModule,
+        ReactiveFormsModule
     ],
   providers: [],
   bootstrap: [AppComponent]

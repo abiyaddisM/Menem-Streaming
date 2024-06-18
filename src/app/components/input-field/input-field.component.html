@@ -1,0 +1,6 @@
+<div class="i-container">
+  <img *ngIf="isPassword"  (click)="togglePasswordVisibility()" [src]="eyePath" alt="">
+  <input class="input" [type]="whatType()"  [placeholder]="placeholder" (input)="onInput($event)" [value]="value">
+</div>
+<ng-content></ng-content>
+

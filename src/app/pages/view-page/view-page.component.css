@@ -28,3 +28,9 @@ iframe{
   grid-column: 2/2;
   border-radius: 20px;
 }
+@media (max-width: 700px) {
+  .v-p-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+}
