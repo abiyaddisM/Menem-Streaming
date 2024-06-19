@@ -8,6 +8,7 @@
   display: flex;
   justify-content: center;
   overflow: hidden;
+
 }
 
 .btn{
@@ -22,7 +23,8 @@
   z-index: 141;
 }
 .s-container{
-  width: min(1550px,90%);
+  /*width: min(1550px,90%);*/
+  width: 90%;
   height: 100%;
   z-index: 142;
   margin-top: 35px;
@@ -60,10 +62,10 @@
 
 }
 .s-card-container{
-  margin: 20px clamp(0%,2vw,40px) ;
+  /*margin: 20px clamp(0%,2vw,40px) ;*/
   min-height: 100%;
-
-
+  display: flex;
+  flex-direction: column;
 }
 .s-search-card-container{
   width: 100%;
@@ -78,7 +80,9 @@ app-card-show-case{
 .s-card-container .s-card-history{
   color: white;
   font-weight: 500;
-  margin-bottom: 25px;
+  margin: 25px 0;
+  padding-left: clamp(0%,2vw,40px);
+
 }
 .s-card-wrapper{
   width: 100%;
@@ -86,6 +90,7 @@ app-card-show-case{
   display: flex;
   flex-direction: column;
   gap: 10px;
+  padding: 0 clamp(0%,2vw,40px) ;
 }
 .loader {
   border: 4px solid rgba(243, 243, 243, 0.14);
@@ -96,7 +101,9 @@ app-card-show-case{
   animation: spin 2s linear infinite;
   margin-top: 60px;
 }
-
+app-card-show-case{
+  width: 100%;
+}
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }

@@ -5,7 +5,7 @@
 }
 .v-p-wrapper{
   height: 100%;
-  width: min(90%,1550px);
+  width: 90%;
   margin-top: 120px;
   border-radius: 20px;
   display: grid;

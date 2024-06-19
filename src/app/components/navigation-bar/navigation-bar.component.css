@@ -11,7 +11,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: min(90%,1550px);
+  /*width: min(90%,1550px);*/
+  width: 90%;
+
 }
 .n-b-logo-container{
   display: flex;

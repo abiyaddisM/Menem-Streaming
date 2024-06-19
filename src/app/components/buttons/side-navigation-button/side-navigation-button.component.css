@@ -12,7 +12,7 @@ button:hover{
 
 }
 .isActive{
-  background-color: rgba(124, 124, 124, 0.21);
+  background-color: rgba(72, 72, 72, 0.73);
   color: #e5e5e5;
   font-weight: 600;
   transition: background-color 0.2s;
@@ -23,4 +23,13 @@ button:hover{
 
   justify-content: center;
   gap: 10px;
+}
+.icon-fill{
+  display: none;
+}
+.isActive .icon{
+  display: none;
+}
+.isActive .icon-fill{
+  display: flex;
 }

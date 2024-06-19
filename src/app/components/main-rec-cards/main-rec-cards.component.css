@@ -18,7 +18,9 @@ img{
   display: flex;
   justify-content: center;
   flex-direction: column;
-  width: min(90%,1550px);;
+  /*width: min(90%,1550px);;*/
+  width: 90%;
+
   margin-bottom: 60px;
   z-index: 4;
   gap: 12px;
@@ -27,8 +29,7 @@ img{
   width: auto;
   color: #F6F6F6;
   font-weight: bold;
-  font-size: clamp(2rem,2.5vw,2.4rem);
-
+  font-size: clamp(1.8rem,2.5vw,2.4rem);
 }
 .text-wrapper p {
   color: #B0B0B0;
@@ -43,3 +44,15 @@ img{
   gap: 15px;
 }
 
+@media (max-width: 700px) {
+  .text-wrapper {
+    align-items: center;
+  }
+  .text-wrapper p {
+    display: none;
+  }
+  .text-wrapper h2 {
+    text-align: center;
+    padding: 0 30px;
+  }
+}

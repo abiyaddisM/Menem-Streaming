@@ -9,5 +9,6 @@ export class SideNavigationButtonComponent {
   @Input() isActive = false
   @Input() name = ''
   @Input() icon = ''
+  @Input() iconFill = ''
   @Input() router_Link = ''
 }

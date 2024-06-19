@@ -5,7 +5,8 @@
   margin-bottom: 40px;
 }
 .c-s-c-wrapper{
-  width: min(90%,1550px);
+  width: 100%;
+
 }
 .c-s-c-title{
   color: #F6F6F6;

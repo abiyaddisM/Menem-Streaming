@@ -2,7 +2,7 @@
   <div class="slider-wrapper">
     <div class="gradient-cover"></div>
     <div class="slider" (scroll)="onScroll($event)">
-      <app-main-rec-cards class="main-rec-card" [imageUrl]="s" *ngFor="let s of slides"/>
+      <app-main-rec-cards class="main-rec-card" [imageUrl]="s.img" [title]="s.title" [description]="s.description" *ngFor="let s of slides"/>
     </div>
   </div>
   <div class="slider-sec-ind-wrapper">
