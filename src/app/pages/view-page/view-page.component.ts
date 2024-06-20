@@ -1,5 +1,5 @@
 import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import {GetTvDetailService} from "../../services/GET/get-tv-detail.service";
 import {GetMovieDetailService} from "../../services/GET/get-movie-detail.service";
@@ -35,7 +35,7 @@ export class ViewPageComponent implements OnInit,AfterViewInit {
   // @ts-ignore
   selectedValue: string = '1';
 
-  constructor(private route: ActivatedRoute, private sanitizer: DomSanitizer,private getTvDetail:GetTvDetailService,private getMovieDetail:GetMovieDetailService) {
+  constructor(private route: ActivatedRoute, private sanitizer: DomSanitizer,private getTvDetail:GetTvDetailService,private getMovieDetail:GetMovieDetailService,private router:Router) {
   }
 
   ngOnInit() {
@@ -51,9 +51,14 @@ export class ViewPageComponent implements OnInit,AfterViewInit {
     this.route.paramMap.subscribe(params => {
       this.id = params.get('id') || ''; // Set id from route parameter or use default
       this.mediaType = params.get('mediaType') || '';
+      this.season = params.get('season') || '';
+      this.episode = params.get('episode') || '';
+      this.selectedValue = this.season
+      if(this.season === '0' && this.mediaType === 'tv')
+        this.router.navigate(['/view','tv',this.id,'1','1'])
       if(this.mediaType === 'tv'){
-        // this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(`https://vidsrc.net/embed/${this.mediaType}/${this.id}/${this.season}/${this.episode}`);
-        this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(`https://vidsrc.net/embed/${this.mediaType}/${this.id}`);
+        this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(`https://vidsrc.net/embed/${this.mediaType}/${this.id}/${this.season}/${this.episode}`);
+        // this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(`https://vidsrc.net/embed/${this.mediaType}/${this.id}`);
         this.tvDetail()
       }
       else{
