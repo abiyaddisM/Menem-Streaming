@@ -3,6 +3,8 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
 import {filter} from "rxjs";
 import {slideLeftOut, slideRightIn, slideRightOut} from "../../animations/slide-animation";
+import {AuthService} from "../../services/auth-service.service";
+import {response} from "express";
 
 @Component({
   selector: 'app-sign-in-page',
@@ -15,8 +17,17 @@ export class SignInPageComponent{
     email: new FormControl('',Validators.required),
     password: new FormControl('',Validators.required)
   })
-  submit(){
-    console.log(this.form.value)
+  constructor(private authService:AuthService,private route:Router) {
+  }
+  signIn(credentials:any){
+    this.authService.login(credentials).subscribe(
+      (response:any) =>{
+        console.log("The response: ",response)
+        if(response)
+          this.route.navigate(["/"])
+      }
+    )
+
   }
 
 }

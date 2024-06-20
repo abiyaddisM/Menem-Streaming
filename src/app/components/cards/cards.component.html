@@ -1,10 +1,9 @@
-<div class="c-image" [ngStyle]="{'background-image': 'url('+ imageUrl +')'}" [routerLink]="['/view',id]">
+<div class="c-image" [ngStyle]="{'background-image': 'url('+ imageUrl +')'}" [routerLink]="['/view',mediaType,id]">
   <div class="c-black-cover"></div>
   <div class="c-info-container">
     <div class="c-info-wrapper">
       <h5 class="c-title">{{title}}</h5>
-      <app-mini-info [size]="12" [miniInfo]="genre" [rating]="rating" [subtract]="1"></app-mini-info>
+      <app-mini-info [size]="12" [miniInfo]="genre" [rating]="rating" [subtract]="1"/>
     </div>
   </div>
-
-</div>
+  </div>

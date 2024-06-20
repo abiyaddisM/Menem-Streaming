@@ -5,7 +5,7 @@
       <div class="s-i-p-image" [ngStyle]="{'background-image': 'url(https://image.tmdb.org/t/p/original/5CPuNvSueKbCmltTzLAe8AiYS3u.jpg)'}">
         <div class="s-i-p-cover-2"></div>
       </div>
-      <form [formGroup]="form" (ngSubmit)="submit()"  class="s-i-p-wrapper" >
+      <form [formGroup]="form" #f='ngForm'  (ngSubmit)="signIn(f.value)"  class="s-i-p-wrapper" >
           <img class="s-i-p-icon" src="assets/Icons/star.svg" alt="">
           <div class="s-i-p-title-container">
             <h1 class="s-i-p-main-title">Welcome Back</h1>

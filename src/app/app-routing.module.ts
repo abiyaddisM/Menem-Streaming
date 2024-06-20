@@ -10,7 +10,7 @@ const routes:Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   {path: 'home', component: HomePageComponent},
   {path: 'playlist', component: PlaylistPageComponent},
-  {path: 'view/:id', component: ViewPageComponent},
+  {path: 'view/:mediaType/:id', component: ViewPageComponent},
   {path: 'about', component: AboutPageComponent},
   {path: 'sign-in', component: SignInPageComponent},
   {path: 'sign-up', component: SignInPageComponent},

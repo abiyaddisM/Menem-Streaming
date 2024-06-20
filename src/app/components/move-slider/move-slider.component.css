@@ -25,6 +25,7 @@ section{
   scroll-behavior: smooth;
   object-fit: cover;
   position: relative;
+  scrollbar-width: none;
 
 
 }

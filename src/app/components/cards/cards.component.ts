@@ -11,4 +11,6 @@ export class CardsComponent {
    @Input() rating = 9
    @Input() genre = ['Fantasy','Adventure']
    @Input() id = '974635'
+   // @ts-ignore
+   @Input() mediaType:string
 }

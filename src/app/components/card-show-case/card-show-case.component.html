@@ -2,7 +2,7 @@
   <div class="c-s-c-wrapper"  [ngStyle]="{'width': width +'%'}">
     <h2 class="c-s-c-title" *ngIf="showTitle">Trending Now</h2>
     <div class="c-c-c-card-container">
-      <app-cards *ngFor="let card of cardsData" [title]="checkTitle(card)" [id]="card.id" [imageUrl]="'https://image.tmdb.org/t/p/w300' + card.poster_path" [rating]="card.vote_average" [genre]="card.genre_ids"/>
+      <app-cards *ngFor="let card of cardsData" [title]="checkTitle(card)" [id]="card.id" [imageUrl]="'https://image.tmdb.org/t/p/w300' + card.poster_path" [rating]="card.vote_average" [genre]="card.genre_ids" [mediaType]="card.media_type"/>
     </div>
   </div>
 </section>
