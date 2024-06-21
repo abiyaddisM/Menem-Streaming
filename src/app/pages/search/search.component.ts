@@ -40,16 +40,24 @@ export class SearchComponent {
     if (event.key === 'Enter') {
       this.displaySearched = true
       this.loading = true
-     setTimeout(()=>{
        this.search.getSearches(value)
          .subscribe(data =>{
          this.loading = false
          this.searchedResult = data.results;
          console.log(data.results)
        })
-     },2)
-
     }
+  }
+  fullSearch2(value:string){
+      this.displaySearched = true
+      this.loading = true
+        this.search.getSearches(value)
+          .subscribe(data =>{
+            this.loading = false
+            this.searchedResult = data.results;
+            console.log(data.results)
+          })
+
   }
 }
 interface movieCard{
