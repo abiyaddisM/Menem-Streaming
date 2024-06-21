@@ -26,7 +26,7 @@ section{
   object-fit: cover;
   position: relative;
   scrollbar-width: none;
-
+  transition: transform 0.5s ease;
 
 }
 .main-rec-card{
@@ -34,6 +34,7 @@ section{
   width: 100%;
   scroll-snap-align: start;
   object-fit: cover;
+  transition: transform 0.5s ease;
 }
 .slider-wrapper .gradient-cover{
   position: absolute;

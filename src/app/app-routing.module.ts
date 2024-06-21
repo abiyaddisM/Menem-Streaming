@@ -5,11 +5,12 @@ import {PlaylistPageComponent} from "./pages/playlist-page/playlist-page.compone
 import {ViewPageComponent} from "./pages/view-page/view-page.component";
 import {AboutPageComponent} from "./pages/about-page/about-page.component";
 import {SignInPageComponent} from "./pages/sign-in-page/sign-in-page.component";
+import {AuthGuard} from "./services/auth-guard.service";
 
 const routes:Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   {path: 'home', component: HomePageComponent},
-  {path: 'playlist', component: PlaylistPageComponent},
+  {path: 'playlist', component: PlaylistPageComponent,canActivate:[AuthGuard]},
   {path: 'view/:mediaType/:id/:season/:episode', component: ViewPageComponent},
   {path: 'about', component: AboutPageComponent},
   {path: 'sign-in', component: SignInPageComponent},

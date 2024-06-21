@@ -1,11 +1,12 @@
 <section>
   <div class="slider-wrapper">
     <div class="gradient-cover"></div>
-    <div class="slider" (scroll)="onScroll($event)">
-      <app-main-rec-cards class="main-rec-card" [imageUrl]="s.img" [title]="s.title" [description]="s.description" *ngFor="let s of slides"/>
+    <div class="slider" (scroll)="onScroll($event)" #sliderContainer>
+      <app-main-rec-cards class="main-rec-card" [id]="s.id" [mediaType]="s.mediaType" [imageUrl]="s.img" [title]="s.title" [description]="s.description" *ngFor="let s of slides"/>
+      <app-main-rec-cards class="main-rec-card" [id]="s.id" [mediaType]="s.mediaType" [imageUrl]="s.img" [title]="s.title"  [description]="s.description" *ngFor="let s of slides"/>
     </div>
   </div>
   <div class="slider-sec-ind-wrapper">
-    <app-slider-sec-ind  [active]="currentSlide"/>
+    <app-slider-sec-ind [size]="slides.length"  [active]="currentSlide"/>
   </div>
 </section>

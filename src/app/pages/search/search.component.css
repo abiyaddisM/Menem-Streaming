@@ -39,12 +39,23 @@
   gap: 5px;
   align-items: center;
 }
-.s-close{
- position: absolute;
+.s-close-container{
+  position: absolute;
   right: 0;
-  margin-right: max(20px,2.2%);
+  margin-right: max(16px,1.8%);
   cursor: pointer;
-  width: 14px;
+  padding: 6px;
+  display: flex;
+  border-radius: 14px;
+  transition: 0.1s;
+}
+.s-close-container:hover {
+  background-color: rgba(255, 255, 255, 0.24);
+  transition: 0.1s;
+}
+.s-close{
+
+  width: 15px;
 }
 
 .s-wrapper{

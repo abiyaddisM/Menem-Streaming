@@ -4,7 +4,9 @@
     <div class="s-wrapper">
       <img class="s-input-search-icon" src="assets/Icons/search2.svg" alt="" (click)="fullSearch2(search.value)">
       <input class="s-input" #search (input)="quickSearch(search.value)" (keydown)="fullSearch($event,search.value)" placeholder="Search">
-      <img class="s-close" alt="" src="assets/Icons/close2.svg" (click)="toggleSearch()">
+      <div class="s-close-container" (click)="toggleSearch()">
+        <img class="s-close" alt="" src="assets/Icons/close2.svg" >
+      </div>
     </div>
 
 <!--    </div>-->
