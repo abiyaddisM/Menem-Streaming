@@ -11,7 +11,7 @@ export class AuthService {
   }
 
   login(credentials:any) {
-    return this.http.post('http://localhost:3000/api/authenticate', credentials)
+    return this.http.post('http://116.203.24.252:3000/api/authenticate', credentials)
       .pipe(map((response:any) =>{
         if(response.success){
           localStorage.setItem("token",response.token);

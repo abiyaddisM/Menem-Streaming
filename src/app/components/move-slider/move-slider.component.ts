@@ -15,8 +15,6 @@ export class MoveSliderComponent implements AfterViewInit{
     {img:'https://image.tmdb.org/t/p/original/zCjZfevPFBbOh2SAx2syIBHSqEI.jpg',id:'823464',mediaType:'movie',title:'Godzilla x Kong: The New Empire',description:'Following their explosive showdown, Godzilla and Kong must reunite against a colossal undiscovered threat hidden within our world, challenging their very existence – and our own.'}];
 
   currentSlide = 0;
-  slideOne = 1
-  slideTwo = 2
   ngAfterViewInit() {
     // Initialize slider position
     this.autoScroll()
@@ -26,17 +24,22 @@ export class MoveSliderComponent implements AfterViewInit{
     const slider = event.target as HTMLElement;
     const slideWidth = slider.clientWidth;
     const scrollLeft = slider.scrollLeft;
-    const actualSlide = Math.round(scrollLeft / slideWidth)
+    const actualSlide = Math.round(scrollLeft / slideWidth);
     this.currentSlide = actualSlide % size;
     const maxScrollLeft = slideWidth * (size * 2 - 1);
     if (scrollLeft < slideWidth) {
-      // If scrolling past the first duplicated slide, jump to the corresponding original slide
-      slider.scrollLeft = scrollLeft + slideWidth * size;
+      slider.scrollBy({
+        left: slideWidth * size,
+        behavior: 'instant'
+      });
     } else if (scrollLeft >= maxScrollLeft) {
-      // If scrolling past the last duplicated slide, jump to the corresponding original slide
-      slider.scrollLeft = scrollLeft - slideWidth * size;
+      slider.scrollBy({
+        left: -(slideWidth * size),
+        behavior: 'instant'
+      });
     }
   }
+
   autoScroll() {
     setInterval(() => {
       const slider = this.sliderContainer.nativeElement;
@@ -47,19 +50,14 @@ export class MoveSliderComponent implements AfterViewInit{
       const maxScrollLeft = slideWidth * (slideCount * 2 - 1);
 
       if (slider.scrollLeft + slideWidth >= maxScrollLeft) {
-        // Reset scroll position to the beginning of the original slides
         slider.scrollLeft = slider.scrollLeft - slideWidth * slideCount;
       }
 
       slider.scrollBy({
         left: slideWidth,
-        behavior: 'smooth'
+        behavior: 'instant'
       });
-    }, 8000); // Adjust interval as needed
+    }, 3000);
   }
-  switchSlides(){
-    let temp = this.slideOne;
-    this.slideOne = this.slideTwo;
-    this.slideTwo = temp;
-  }
+
 }

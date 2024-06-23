@@ -21,6 +21,7 @@
       <app-icon-button class="nav-search" (click)="toggleSearch()"></app-icon-button>
       <a class="nav-profile" *ngIf="authService.isLoggedIn()" (click)="authService.logout()">
         <img src="assets/Icons/profile-icon.png" alt="">
+        <h3>{{username}}</h3>
       </a>
     </div>
   </div>

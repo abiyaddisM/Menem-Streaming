@@ -12,6 +12,8 @@ import {response} from "express";
   styleUrls: ['./sign-in-page.component.css'],
 })
 export class SignInPageComponent{
+  loading = false;
+
 
   form = new FormGroup({
     email: new FormControl('',Validators.required),
@@ -20,8 +22,10 @@ export class SignInPageComponent{
   constructor(private authService:AuthService,private route:Router) {
   }
   signIn(credentials:any){
+    this.loading = true
     this.authService.login(credentials).subscribe(
       (response:any) =>{
+        this.loading = false
         console.log("The response: ",response)
         if(response)
           this.route.navigate(["/"])

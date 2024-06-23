@@ -27,32 +27,36 @@ import {HttpClientModule} from "@angular/common/http";
 import { SignInPageComponent } from './pages/sign-in-page/sign-in-page.component';
 import { InputFieldComponent } from './components/input-field/input-field.component';
 import {FormControl, FormGroup, FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {
+  PreventMalvertisementDirective,
+} from "./directives/prevent-unwanted-clicks.directive";
 
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    MoveSliderComponent,
-    NavigationBarComponent,
-    HomePageComponent,
-    MiniInfoComponent,
-    MainRecCardsComponent,
-    TransparentButtonComponent,
-    SliderSecIndComponent,
-    IconButtonComponent,
-    CardShowCaseComponent,
-    CardsComponent,
-    SearchComponent,
-    SearchCardComponent,
-    NaviationSideBarComponent,
-    ViewPageComponent,
-    PlaylistPageComponent,
-    AboutPageComponent,
-    SideNavigationButtonComponent,
-    SignInPageComponent,
-    InputFieldComponent
-  ],
+    declarations: [
+        AppComponent,
+        MoveSliderComponent,
+        NavigationBarComponent,
+        HomePageComponent,
+        MiniInfoComponent,
+        MainRecCardsComponent,
+        TransparentButtonComponent,
+        SliderSecIndComponent,
+        IconButtonComponent,
+        CardShowCaseComponent,
+        CardsComponent,
+        SearchComponent,
+        SearchCardComponent,
+        NaviationSideBarComponent,
+        ViewPageComponent,
+        PlaylistPageComponent,
+        AboutPageComponent,
+        SideNavigationButtonComponent,
+        SignInPageComponent,
+        InputFieldComponent,
+        PreventMalvertisementDirective
+    ],
     imports: [
         BrowserModule,
         NgOptimizedImage,

@@ -1,7 +1,9 @@
 <div class="v-p-container" [ngStyle]="{'background-image':'url(https://image.tmdb.org/t/p/original' + backdropImg +')'}">
   <div class="gradient-cover"></div>
   <div class="v-p-wrapper" [ngStyle]="{'height': elementHeight + 'px'}">
-    <iframe [src]="videoUrl" style="border:none;" allow="autoplay; fullscreen" allowfullscreen #elementRef></iframe>
+    <div appPreventMalvertisement>
+      <iframe [src]="videoUrl" style="border:none;" allow="autoplay; fullscreen" allowfullscreen #elementRef ></iframe>
+    </div>
     <div class="v-p-seasons-container" *ngIf="mediaType === 'tv'">
       <div class="drop-down-wrapper">
         <select  class="drop-down-selector" [(ngModel)]="selectedValue" (change)="onSelectChange()">

@@ -68,9 +68,18 @@
 }
 .nav-profile {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
 }
 .nav-profile img{
   width: 30px;
+}
+.nav-profile h3{
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 300;
 }
 .nav-sign-in-button{
   display: flex;
