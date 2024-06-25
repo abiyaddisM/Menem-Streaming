@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import {response} from "express";
 import {JwtHelperService} from "@auth0/angular-jwt";
+import {error} from "@angular/compiler-cli/src/transformers/util";
 @Injectable({
   providedIn: 'root'
 })
@@ -11,13 +12,16 @@ export class AuthService {
   }
 
   login(credentials:any) {
-    return this.http.post('http://116.203.24.252:3000/api/authenticate', credentials)
+    console.log("waiting")
+    return this.http.post('https://bizawit.com/api/authenticate', credentials)
       .pipe(map((response:any) =>{
+        console.log("Done")
+
         if(response.success){
           localStorage.setItem("token",response.token);
         }
         return response.success
-      }))
+      }) )
 
   }
 

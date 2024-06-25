@@ -29,6 +29,11 @@ export class SignInPageComponent{
         console.log("The response: ",response)
         if(response)
           this.route.navigate(["/"])
+      },
+      (error:any) =>{
+        console.log("This is the shit")
+        console.log(error)
+        this.loading = false
       }
     )
 

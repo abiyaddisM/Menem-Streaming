@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import {GetTvDetailService} from "../../services/GET/get-tv-detail.service";
 import {GetMovieDetailService} from "../../services/GET/get-movie-detail.service";
+import {SearchHistoryService} from "../../services/search-history.service";
 
 @Component({
   selector: 'app-view-page',
@@ -29,13 +30,20 @@ export class ViewPageComponent implements OnInit,AfterViewInit {
   // @ts-ignore
   details:any
   // @ts-ignore
+  latestAirDate:string
+  // @ts-ignore
   numberOfSeasons = 0
   // @ts-ignore
     showInfo:showFormat[]
   // @ts-ignore
   selectedValue: string = '1';
 
-  constructor(private route: ActivatedRoute, private sanitizer: DomSanitizer,private getTvDetail:GetTvDetailService,private getMovieDetail:GetMovieDetailService,private router:Router) {
+  constructor(private route: ActivatedRoute,
+              private sanitizer: DomSanitizer,
+              private getTvDetail:GetTvDetailService,
+              private getMovieDetail:GetMovieDetailService,
+              private searchHistory:SearchHistoryService,
+              private router:Router) {
   }
 
   ngOnInit() {
@@ -57,7 +65,7 @@ export class ViewPageComponent implements OnInit,AfterViewInit {
       if(this.season === '0' && this.mediaType === 'tv')
         this.router.navigate(['/view','tv',this.id,'1','1'])
       if(this.mediaType === 'tv'){
-        this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(`https://vidsrc.net/embed/${this.mediaType}/${this.id}/${this.season}/${this.episode}`);
+        // this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(`https://vidsrc.net/embed/${this.mediaType}/${this.id}/${this.season}/${this.episode}`);
         // this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(`https://vidsrc.net/embed/${this.mediaType}/${this.id}`);
         this.tvDetail()
       }
@@ -69,13 +77,14 @@ export class ViewPageComponent implements OnInit,AfterViewInit {
   }
   tvDetail(){
     this.getTvDetail.getTvDetail(this.id).subscribe((res:any)=>{
-      console.log(res)
+      this.searchHistory.addToHistory(res,'tv')
       this.backdropImg = res.backdrop_path;
       this.numberOfSeasons = res.number_of_seasons;
       this.showInfo = new Array<showFormat>(this.numberOfSeasons).fill({
         season: '',
         episode:[]
       });
+      this.latestAirDate = res.last_air_date
       for (let i = 0; i < this.numberOfSeasons; i++) {
         this.tvSeasonDetail((i + 1).toString(),i);
       }
@@ -84,23 +93,22 @@ export class ViewPageComponent implements OnInit,AfterViewInit {
   movieDetail(){
     this.details = this.getMovieDetail.getMovieDetail(this.id).subscribe((res:any)=>{
       this.backdropImg = res.backdrop_path;
+      this.searchHistory.addToHistory(res,'movie')
     })
   }
 
   tvSeasonDetail(season:string,i:number){
     this.getTvDetail.getTvSeasonDetail(this.id,season).subscribe((res:any) =>{
       this.showInfo[i] = ({season:season,episode:res.episodes})
-      console.log(res)
+      // console.log(res)
     })
-  }
-  onSelectChange() {
-    console.log(this.selectedValue); // Log the selected value to console
   }
   getSelected(){
     return parseInt(this.selectedValue)
   }
 
   protected readonly Array = Array;
+
 }
 interface showFormat{
   season:string,

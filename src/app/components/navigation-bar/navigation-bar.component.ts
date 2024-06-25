@@ -30,7 +30,6 @@ export class NavigationBarComponent implements OnInit{
       const token = localStorage.getItem('token') || '';
       const decoded = jwtHelper.decodeToken(token);
       this.username = decoded.username;
-      console.log(this.username)
     }
 
 

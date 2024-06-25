@@ -6,16 +6,18 @@
     </div>
     <div class="v-p-seasons-container" *ngIf="mediaType === 'tv'">
       <div class="drop-down-wrapper">
-        <select  class="drop-down-selector" [(ngModel)]="selectedValue" (change)="onSelectChange()">
+        <select  class="drop-down-selector" [(ngModel)]="selectedValue">
           <option *ngFor="let _ of Array(this.numberOfSeasons); let i = index" [value]="i + 1" >Season {{i + 1}}</option>
         </select>
         <img src="assets/Icons/arrow.svg" class="custom-arrow">
       </div>
-      <div class="v-p-episode-container" *ngFor="let ep of showInfo[getSelected() - 1].episode" [routerLink]="['/view','tv',id,selectedValue,ep.episode_number]" routerLinkActive="activeEp">
-        <img class="v-p-episode-image" [src]="'https://image.tmdb.org/t/p/w300'+ep.still_path" width="160" alt="">
-        <div class="v-p-episode-info-container">
-          <h2 class="v-p-episode-title">Episode {{ep.episode_number}}</h2>
-          <h3 class="v-p-episode-date">{{ep.air_date}}</h3>
+      <div *ngFor="let ep of showInfo[getSelected() - 1].episode" >
+        <div class="v-p-episode-container" *ngIf="ep.air_date <= latestAirDate"  [routerLink]="['/view','tv',id,selectedValue,ep.episode_number]" routerLinkActive="activeEp" >
+          <img class="v-p-episode-image" [src]="'https://image.tmdb.org/t/p/w300'+ep.still_path" width="160" alt="">
+          <div class="v-p-episode-info-container">
+            <h2 class="v-p-episode-title">Episode {{ep.episode_number}}</h2>
+            <h3 class="v-p-episode-date">{{ep.air_date}}</h3>
+          </div>
         </div>
       </div>
     </div>
