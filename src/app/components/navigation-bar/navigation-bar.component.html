@@ -1,6 +1,5 @@
-<app-search [searchToggle] = 'searchToggle'  (booleanChange) = 'toggleSearch()'></app-search>
-<app-naviation-side-bar [sideBarToggle] = 'sideBarToggle' (booleanChange) = 'toggleSideBar()' class="n-b-side-bar-button"></app-naviation-side-bar>
-<nav class="nav-container">
+
+<nav class="nav-container" (keydown)="openSearch($event)">
   <div class="nav-wrapper">
     <div class="n-b-logo-container">
       <img class="n-b-menu-button" src="assets/Icons/menu.svg" alt="" (click)="toggleSideBar()">
@@ -28,3 +27,5 @@
 
 </nav>
 
+<app-search @fadeInOut *ngIf="searchToggle" [searchToggle] = 'searchToggle'  (booleanChange) = 'toggleSearch()'></app-search>
+<app-naviation-side-bar [sideBarToggle] = 'sideBarToggle' (booleanChange) = 'toggleSideBar()' class="n-b-side-bar-button"></app-naviation-side-bar>

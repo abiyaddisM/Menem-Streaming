@@ -13,6 +13,7 @@ import {response} from "express";
 })
 export class SignInPageComponent{
   loading = false;
+  invalidError = false;
 
 
   form = new FormGroup({
@@ -29,6 +30,9 @@ export class SignInPageComponent{
         console.log("The response: ",response)
         if(response)
           this.route.navigate(["/"])
+        else
+          this.invalidError = true
+
       },
       (error:any) =>{
         console.log("This is the shit")

@@ -1,9 +1,15 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  Output,
+  ViewChild
+} from '@angular/core';
 import { OnInit, OnDestroy } from '@angular/core';
 import {fadeInOut} from "../../animations/fade-animation";
-import {animate, style, transition, trigger} from "@angular/animations";
 import {GetMultiSearchService} from "../../services/GET/get-multi-search.service";
-import { map } from 'rxjs/operators';
 import {SearchHistoryService} from "../../services/search-history.service";
 
 @Component({
@@ -13,20 +19,27 @@ import {SearchHistoryService} from "../../services/search-history.service";
   animations: [fadeInOut]
 
 })
-export class SearchComponent implements OnDestroy,OnInit {
-  @Input() searchToggle = true
+export class SearchComponent implements OnDestroy,OnInit,AfterViewInit  {
+  // @ts-ignore
+  @ViewChild('inputField') inputField:ElementRef
+  @Input() searchToggle = false
   @Output() booleanChange = new EventEmitter<boolean>();
   displaySearched = false
   searchedResult:any
   loading = false;
   cards:any[] = []
   constructor(private search:GetMultiSearchService,
-              private searchHistory:SearchHistoryService) {
+              private searchHistory:SearchHistoryService
+            ) {
   }
   ngOnInit(): void {
     this.searchHistory.searchHistory$.subscribe(history =>{
       this.cards = history
     })
+
+  }
+  ngAfterViewInit(): void {
+      this.inputField.nativeElement.focus();
   }
   toggleSearch(){
     this.booleanChange.emit(this.searchToggle)
@@ -35,7 +48,6 @@ export class SearchComponent implements OnDestroy,OnInit {
     this.displaySearched = false
   }
   ngOnDestroy() {
-    console.log("Bithc is gone")
     this.searchedResult = [];
   }
 
@@ -78,6 +90,8 @@ export class SearchComponent implements OnDestroy,OnInit {
           })
 
   }
+
+
 
 
 }

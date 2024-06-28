@@ -11,11 +11,18 @@
             <h1 class="s-i-p-main-title">Welcome Back</h1>
             <h2 class="s-i-p-second-title">Welcome Back. Pleas enter your details</h2>
           </div>
+          <div class="s-i-p-error-invalid" *ngIf="invalidError">
+            Invalid Email or Password
+          </div>
           <app-input-field formControlName="email" placeholder="Email">
-            <div *ngIf="form.get('email')?.touched && form.get('email')?.invalid" class="s-i-p-alert">Email is required</div>
+            <div *ngIf="form.get('email')?.touched ">
+<!--              <div *ngIf="form.get('email')?.invalid" class="s-i-p-alert">Email is required</div>-->
+            </div>
           </app-input-field>
           <app-input-field formControlName="password" placeholder="Password" [isPassword]="true">
-            <div *ngIf="form.get('password')?.touched && form.get('password')?.invalid" class="s-i-p-alert">Password is required</div>
+            <div *ngIf = "form.get('password')?.touched ">
+<!--              <div *ngIf = "form.get('password')?.invalid" class="s-i-p-alert">Password is required</div>-->
+            </div>
           </app-input-field>
 
           <button class="s-i-p-button" type="submit" >Sign In <div *ngIf="loading" class="loader" ></div> </button>

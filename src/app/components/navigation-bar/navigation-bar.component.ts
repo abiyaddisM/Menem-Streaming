@@ -7,7 +7,9 @@ import {JwtHelperService} from "@auth0/angular-jwt";
 @Component({
   selector: 'app-navigation-bar',
   templateUrl: './navigation-bar.component.html',
-  styleUrls: ['./navigation-bar.component.css']
+  styleUrls: ['./navigation-bar.component.css'],
+  animations: [fadeInOut]
+
 })
 
 export class NavigationBarComponent implements OnInit{
@@ -23,7 +25,12 @@ export class NavigationBarComponent implements OnInit{
   toggleSideBar() {
     this.sideBarToggle = !this.sideBarToggle
   }
-
+  openSearch(event:KeyboardEvent){
+    console.log("Bitch")
+    if(event.key === 'Enter'){
+      console.log("Bitch")
+    }
+  }
   ngOnInit(): void {
     let jwtHelper = new JwtHelperService();
     if(this.authService.isLoggedIn()){

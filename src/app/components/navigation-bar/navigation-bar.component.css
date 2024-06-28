@@ -116,3 +116,8 @@
   }
 }
 
+app-search{
+  background-color: rgba(0, 128, 0, 0);
+  z-index: 140;
+  position: absolute;
+}

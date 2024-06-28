@@ -4,7 +4,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import {GetTvDetailService} from "../../services/GET/get-tv-detail.service";
 import {GetMovieDetailService} from "../../services/GET/get-movie-detail.service";
 import {SearchHistoryService} from "../../services/search-history.service";
-
+import { format } from 'date-fns';
 @Component({
   selector: 'app-view-page',
   templateUrl: './view-page.component.html',
@@ -65,7 +65,7 @@ export class ViewPageComponent implements OnInit,AfterViewInit {
       if(this.season === '0' && this.mediaType === 'tv')
         this.router.navigate(['/view','tv',this.id,'1','1'])
       if(this.mediaType === 'tv'){
-        // this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(`https://vidsrc.net/embed/${this.mediaType}/${this.id}/${this.season}/${this.episode}`);
+        this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(`https://vidsrc.net/embed/${this.mediaType}/${this.id}/${this.season}/${this.episode}`);
         // this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(`https://vidsrc.net/embed/${this.mediaType}/${this.id}`);
         this.tvDetail()
       }
@@ -106,6 +106,10 @@ export class ViewPageComponent implements OnInit,AfterViewInit {
   getSelected(){
     return parseInt(this.selectedValue)
   }
+  formatDate(dateString: string): string {
+    return format(new Date(dateString), 'dd MMM yyyy');
+  }
+
 
   protected readonly Array = Array;
 

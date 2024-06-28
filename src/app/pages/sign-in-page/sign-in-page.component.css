@@ -117,6 +117,16 @@ app-input-field{
   transition: 0.2s;
   color: #ffffff;
 }
+.s-i-p-error-invalid{
+  background-color: rgba(255, 44, 44, 0.3);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+}
 .s-i-p-alert{
   color: rgba(248, 43, 43, 0.8);
 }

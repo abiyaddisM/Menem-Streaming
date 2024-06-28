@@ -13,7 +13,7 @@ export class AuthService {
 
   login(credentials:any) {
     console.log("waiting")
-    return this.http.post('https://bizawit.com/api/authenticate', credentials)
+    return this.http.post('https://auth.bizawit.com/api/authenticate', credentials)
       .pipe(map((response:any) =>{
         console.log("Done")
 

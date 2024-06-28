@@ -1,9 +1,9 @@
-<div @fadeInOut class="temp" *ngIf="searchToggle">
+<div  class="temp" >
   <div class="s-container">
 <!--    <div class="s-container2">-->
     <div class="s-wrapper">
-      <img class="s-input-search-icon" src="assets/Icons/search2.svg" alt="" (click)="fullSearch2(search.value)">
-      <input class="s-input" #search (input)="quickSearch(search.value)" (keydown)="fullSearch($event,search.value)" placeholder="Search">
+      <img class="s-input-search-icon" src="assets/Icons/search2.svg" alt="" (click)="fullSearch2(inputField.value)">
+      <input class="s-input" #inputField (input)="quickSearch(inputField.value)" (keydown)="fullSearch($event,inputField.value)" placeholder="Search">
       <div class="s-close-container" (click)="toggleSearch()">
         <img class="s-close" alt="" src="assets/Icons/close2.svg" >
       </div>
