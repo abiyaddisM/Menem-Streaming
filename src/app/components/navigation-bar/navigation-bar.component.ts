@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import {fadeInOut} from "../../animations/fade-animation";
 import {animate, style, transition, trigger} from "@angular/animations";
 import {AuthService} from "../../services/auth-service.service";
@@ -25,11 +25,8 @@ export class NavigationBarComponent implements OnInit{
   toggleSideBar() {
     this.sideBarToggle = !this.sideBarToggle
   }
-  openSearch(event:KeyboardEvent){
-    console.log("Bitch")
-    if(event.key === 'Enter'){
-      console.log("Bitch")
-    }
+  openSearch(){
+
   }
   ngOnInit(): void {
     let jwtHelper = new JwtHelperService();
@@ -40,5 +37,12 @@ export class NavigationBarComponent implements OnInit{
     }
 
 
+  }
+  @HostListener('document:keydown.control.space', ['$event'])
+  handleKeyboardEvent(event: KeyboardEvent) {
+    // Check if Ctrl + Space is pressed
+    if (event.ctrlKey && event.code === 'Space') {
+      this.toggleSearch()
+    }
   }
 }

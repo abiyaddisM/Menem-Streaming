@@ -52,7 +52,7 @@ export class SearchComponent implements OnDestroy,OnInit,AfterViewInit  {
   }
 
   quickSearch(value:string){
-    if(value.length === 0){
+    if(value.length === 0 || /^\s*$/.test(value)){
       this.displaySearched = false
       return
     }
@@ -65,7 +65,7 @@ export class SearchComponent implements OnDestroy,OnInit,AfterViewInit  {
       })
   }
   fullSearch(event:KeyboardEvent,value:string){
-    if(value.length === 0){
+    if(value.length === 0 || /^\s*$/.test(value)){
       this.displaySearched = false
       return
     }
