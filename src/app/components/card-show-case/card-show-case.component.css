@@ -19,8 +19,6 @@
   grid-template-columns: repeat(auto-fit,minmax(190px,1fr));
   grid-gap: 10px;
   justify-content: space-between;
-  padding: 2px;
-
 
 }
 app-cards{
