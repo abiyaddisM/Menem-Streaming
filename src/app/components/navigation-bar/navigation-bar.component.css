@@ -76,6 +76,17 @@
 .nav-profile img{
   width: 30px;
 }
+.nav-search-container{
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  transition: 0.2s;
+  gap: 2px;
+}
+
 .nav-profile h3{
   color: white;
   font-size: 0.9rem;

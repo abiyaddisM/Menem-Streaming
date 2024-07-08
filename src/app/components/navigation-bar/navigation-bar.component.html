@@ -17,7 +17,10 @@
     <div class="nav-left">
       <app-icon-button class="nav-notification" link="assets/Icons/notification.svg" *ngIf="authService.isLoggedIn()"/>
       <button class="nav-sign-in-button" routerLink="/sign-in" *ngIf="!authService.isLoggedIn()">Sign In</button>
-      <app-icon-button class="nav-search" (click)="toggleSearch()"></app-icon-button>
+      <div class="nav-search-container" [class.nav-search-container]="deviceService.isDesktop()" >
+        <app-icon-button id="nav-search" class="nav-search" (click)="toggleSearch()"></app-icon-button>
+        <label *ngIf="deviceService.isDesktop()" for="nav-search">Ctrl + Space</label>
+      </div>
       <a class="nav-profile" *ngIf="authService.isLoggedIn()" (click)="authService.logout()">
         <img src="assets/Icons/profile-icon.png" alt="">
         <h3>{{username}}</h3>

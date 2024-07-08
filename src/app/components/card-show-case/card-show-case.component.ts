@@ -11,11 +11,10 @@ export class CardShowCaseComponent implements AfterViewInit{
   @ViewChild("cardContainer") cardContainer:ElementRef
   @Input() cardsData:any
   @Input() showTitle = true
+  @Input() title = ''
   @Input() width = '100'
   cardLimit:number = 0
-  constructor() {
-    console.log(this.cardsData)
-  }
+
   checkTitle(title:any){
     if (title.hasOwnProperty('name'))
       return title.name;

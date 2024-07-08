@@ -7,6 +7,8 @@ import {HttpClient} from "@angular/common/http";
 })
 export class GetTrendingNowService {
   private url = 'https://api.themoviedb.org/3/trending/all/week?language=en-US';
+  private movieUrl = 'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1';
+  private tvUrl = 'https://api.themoviedb.org/3/tv/popular?language=en-US&page=1';
   private options = {
     headers: {
       accept: 'application/json',
@@ -18,5 +20,11 @@ export class GetTrendingNowService {
 
   getTrending(): Observable<any> {
     return this.http.get(this.url, this.options);
+  }
+  getMovieTrending(): Observable<any> {
+    return this.http.get(this.movieUrl, this.options);
+  }
+  getTvTrending(): Observable<any> {
+    return this.http.get(this.tvUrl, this.options);
   }
 }

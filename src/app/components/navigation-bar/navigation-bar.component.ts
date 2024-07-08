@@ -3,6 +3,7 @@ import {fadeInOut} from "../../animations/fade-animation";
 import {animate, style, transition, trigger} from "@angular/animations";
 import {AuthService} from "../../services/auth-service.service";
 import {JwtHelperService} from "@auth0/angular-jwt";
+import {DeviceService} from "../../services/device.service";
 
 @Component({
   selector: 'app-navigation-bar',
@@ -16,7 +17,7 @@ export class NavigationBarComponent implements OnInit{
   searchToggle = false;
   sideBarToggle = false;
   username = ''
-  constructor(public authService:AuthService) {
+  constructor(public authService:AuthService,public deviceService:DeviceService) {
   }
 
   toggleSearch() {
