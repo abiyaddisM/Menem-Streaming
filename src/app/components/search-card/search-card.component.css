@@ -1,5 +1,5 @@
 .s-c-container{
-  padding: 8px clamp(10px,2vw,40px);
+  padding: 8px;
   border-radius: 12px;
   transition: 0.2s;
   display: flex;

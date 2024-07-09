@@ -30,6 +30,8 @@ import {FormControl, FormGroup, FormsModule, ReactiveFormsModule} from "@angular
 import {
   PreventMalvertisementDirective,
 } from "./directives/prevent-unwanted-clicks.directive";
+import { TvShowViewPageComponent } from './pages/tv-show-view-page/tv-show-view-page.component';
+import {MovieViewPageComponent} from "./pages/movie-view-page/movie-view-page.component";
 
 
 
@@ -55,7 +57,9 @@ import {
         SideNavigationButtonComponent,
         SignInPageComponent,
         InputFieldComponent,
-        PreventMalvertisementDirective
+        PreventMalvertisementDirective,
+        TvShowViewPageComponent,
+        MovieViewPageComponent
     ],
     imports: [
         BrowserModule,

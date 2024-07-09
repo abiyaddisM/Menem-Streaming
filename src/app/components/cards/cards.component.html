@@ -1,4 +1,5 @@
-<div class="c-image" [ngStyle]="{'background-image': 'url('+ imageUrl +')'}" [routerLink]="['/view',mediaType,id,'0','0']">
+
+<div class="c-image" [ngStyle]="{'background-image': 'url('+ imageUrl +')'}" (click)="navigate()" >
   <div class="c-black-cover"></div>
   <div class="c-info-container">
     <div class="c-info-wrapper">

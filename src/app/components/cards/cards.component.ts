@@ -1,4 +1,5 @@
 import {Component, Input} from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-cards',
@@ -13,4 +14,17 @@ export class CardsComponent {
    @Input() id = '974635'
      // @ts-ignore
    @Input() mediaType:string
+
+  constructor(private router:Router) {
+
+  }
+
+  navigate(){
+     if(this.mediaType === 'tv')
+     this.router.navigate(['/view', 'tv',this.id],{queryParams:{season:1,episode:1}})
+    else
+       this.router.navigate(['/view', 'movie',this.id])
+
+  }
+
 }

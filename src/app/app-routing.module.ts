@@ -6,12 +6,16 @@ import {ViewPageComponent} from "./pages/view-page/view-page.component";
 import {AboutPageComponent} from "./pages/about-page/about-page.component";
 import {SignInPageComponent} from "./pages/sign-in-page/sign-in-page.component";
 import {AuthGuard} from "./services/auth-guard.service";
+import {MovieViewPageComponent} from "./pages/movie-view-page/movie-view-page.component";
+import {TvShowViewPageComponent} from "./pages/tv-show-view-page/tv-show-view-page.component";
 
 const routes:Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   {path: 'home', component: HomePageComponent},
   {path: 'playlist', component: PlaylistPageComponent,canActivate:[AuthGuard]},
-  {path: 'view/:mediaType/:id/:season/:episode', component: ViewPageComponent},
+  {path: 'view', component: ViewPageComponent},
+  {path: 'view/movie/:id', component: MovieViewPageComponent},
+  {path: 'view/tv/:id', component: TvShowViewPageComponent},
   {path: 'about', component: AboutPageComponent},
   {path: 'sign-in', component: SignInPageComponent},
   {path: 'sign-up', component: SignInPageComponent},

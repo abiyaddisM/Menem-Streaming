@@ -1,4 +1,3 @@
-<!--
 <div class="v-p-container" [ngStyle]="{'background-image':'url(https://image.tmdb.org/t/p/original' + backdropImg +')'}">
   <div class="gradient-cover"></div>
   <div class="v-p-wrapper" [ngStyle]="{'height': elementHeight + 'px'}">
@@ -12,8 +11,8 @@
         </select>
         <img src="assets/Icons/arrow.svg" class="custom-arrow">
       </div>
-      <div *ngFor="let ep of showInfo[getSelected() - 1].episode" >
-        <div class="v-p-episode-container" *ngIf="ep.air_date <= latestAirDate"  [routerLink]="['/view','tv',id,selectedValue,ep.episode_number]" routerLinkActive="activeEp" >
+      <div *ngFor="let ep of showInfo[getSelected() - 1].episode,let i = index" >
+        <div class="v-p-episode-container" *ngIf="ep.air_date <= latestAirDate"  (click)="changeEpisode(i + 1)" [class.activeEp]="parseInt(season) === getSelected() && parseInt(episode) === i + 1"  >
           <img class="v-p-episode-image" [src]="'https://image.tmdb.org/t/p/w300'+ep.still_path" width="160" alt="">
           <div class="v-p-episode-info-container">
             <h2 class="v-p-episode-title"> {{ep.episode_number}}. {{ep.name}}</h2>
@@ -24,6 +23,3 @@
     </div>
   </div>
 </div>
--->
-<!--<app-movie-view-page></app-movie-view-page>-->
-<router-outlet></router-outlet>
