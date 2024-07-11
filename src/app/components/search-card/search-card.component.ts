@@ -1,4 +1,5 @@
 import {Component, Input} from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-search-card',
@@ -10,5 +11,16 @@ export class SearchCardComponent {
   @Input() title = 'The Fall Guy'
   @Input() rating = 9
   @Input() id = ''
+  @Input() mediaType = ''
   @Input() genre = ['Fantasy','Adventure']
+  constructor(private router:Router) {
+  }
+  navigate(){
+    if(this.mediaType === 'tv')
+      this.router.navigate(['/view', 'tv',this.id],{queryParams:{season:1,episode:1}})
+    else
+      this.router.navigate(['/view', 'movie',this.id])
+
+  }
+
 }

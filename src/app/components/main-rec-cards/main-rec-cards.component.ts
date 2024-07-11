@@ -1,4 +1,5 @@
 import {Component, Input} from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-main-rec-cards',
@@ -11,4 +12,14 @@ export class MainRecCardsComponent {
   @Input() mediaType = ''
   @Input() title = 'Invincible'
   @Input() description = 'Mark Grayson is a normal teenager except for the fact that his father is the most powerful superhero on the planet. Shortly after his seventeenth birthday, Mark begins to develop powers of his own and enters into his father’s tutelage.\n'
+
+  constructor(private router:Router) {
+  }
+  navigate(){
+    if(this.mediaType === 'tv')
+      this.router.navigate(['/view', 'tv',this.id],{queryParams:{season:1,episode:1}})
+    else
+      this.router.navigate(['/view', 'movie',this.id])
+
+  }
 }

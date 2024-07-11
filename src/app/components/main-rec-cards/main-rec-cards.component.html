@@ -6,7 +6,7 @@
       {{description}}
     </p>
     <div class="button-wrapper">
-      <app-transparent-button [routerLink]="['/view',mediaType,id,'0','0']"></app-transparent-button>
+      <app-transparent-button (click)="navigate()"></app-transparent-button>
       <app-transparent-button routerLink="/playlist" text="Add Playlist" iconImg="assets/Icons/playlist.svg"></app-transparent-button>
     </div>
   </div>

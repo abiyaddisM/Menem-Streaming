@@ -11,7 +11,7 @@
     <div class="s-card-container" *ngIf="!displaySearched">
       <h4 class="s-card-history">History</h4>
       <div class="s-card-wrapper">
-        <app-search-card [title]="card.title" [imageUrl]="card.image" [genre]="card.genre" [rating]="card.rating" *ngFor="let card of cards" [routerLink]="['/view',card.mediaType,card.id,'0','0']" (click)="toggleSearch()"></app-search-card>
+        <app-search-card [id]="card.id" [mediaType]="card.mediaType" [title]="card.title" [imageUrl]="card.image" [genre]="card.genre" [rating]="card.rating" *ngFor="let card of cards"  (click)="toggleSearch()"></app-search-card>
       </div>
     </div>
     <div class="s-search-card-container" *ngIf="displaySearched">

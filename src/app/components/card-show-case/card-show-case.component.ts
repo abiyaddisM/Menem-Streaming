@@ -30,14 +30,15 @@ export class CardShowCaseComponent implements AfterViewInit{
     const capacityPerRow = this.calculateOneRowChild(cardContainerWidth,cardWidth,10);
     const cardLength =  20;
     this.cardLimit =  cardLength - (cardLength % capacityPerRow)
-    console.log(this.cardLimit, " ", capacityPerRow);
-
+    // console.log((cardContainerWidth - (capacityPerRow - 1) * 10) / capacityPerRow)
+    // console.log(this.cardLimit, " ", capacityPerRow);
   }
   calculateOneRowChild(parentWidth:number,childWidth:number,gap:number){
     if (parentWidth <= 600)
       return 2
     const holdCard = Math.floor(parentWidth/childWidth);
     const maxCardSize = holdCard * (childWidth + gap) - 10
+    // console.log(maxCardSize, "  ",parentWidth)
     return maxCardSize < parentWidth ? holdCard : holdCard - 1
 
   }
