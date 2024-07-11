@@ -13,6 +13,7 @@ export class CardShowCaseComponent implements AfterViewInit{
   @Input() showTitle = true
   @Input() title = ''
   @Input() width = '100'
+  @Input() cardLoader = false;
   cardLimit:number = 0
 
   checkTitle(title:any){
@@ -51,5 +52,7 @@ export class CardShowCaseComponent implements AfterViewInit{
   onWindowResize(event: Event) {
     this.cardDisplayArrangement()
   }
+
+  protected readonly Array = Array;
 }
 

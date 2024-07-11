@@ -21,6 +21,22 @@
   justify-content: space-between;
 
 }
+.loadCard{
+  aspect-ratio: 2/3.2;
+  max-width: 230px;
+  background-color: #1b1d21;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.loadCard-shine{
+  width: 1000px;
+  background: linear-gradient(to bottom, rgb(27, 29, 33) 0%, rgb(32, 34, 38) 50%, rgb(27, 29, 33) 100%);;
+  height: 60px;
+  transform: rotate(-42deg);
+  position: relative;
+  bottom: 200px;
+  right: 240px;
+}
 app-cards{
   width: 100%;
 }
