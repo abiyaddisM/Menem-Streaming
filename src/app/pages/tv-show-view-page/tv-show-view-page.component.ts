@@ -31,7 +31,7 @@ export class TvShowViewPageComponent {
   // @ts-ignore
   details:any
   // @ts-ignore
-  latestAirDate:string
+  latestAirDate:string =new Date().toISOString().split('T')[0];
   // @ts-ignore
   numberOfSeasons = 0
   // @ts-ignore
@@ -80,7 +80,8 @@ export class TvShowViewPageComponent {
         season: '',
         episode:[]
       });
-      this.latestAirDate = res.last_air_date
+      // this.latestAirDate = res.last_air_date
+      console.log(this.latestAirDate)
       for (let i = 0; i < this.numberOfSeasons; i++) {
         this.tvSeasonDetail((i + 1).toString(),i);
       }
