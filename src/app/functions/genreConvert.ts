@@ -1,4 +1,4 @@
-const genreSwitch:GenreSwitch = {
+ const genreSwitch:GenreSwitch = {
   '28': 'Action',
   '16' : 'Animated',
   '99' : 'Documentary',

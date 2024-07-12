@@ -1,7 +1,7 @@
 <div class="m-r-c-container" [ngStyle]="{'background-image': 'url('+ imageUrl +')'}">
   <div class="text-wrapper">
     <h2>{{title}}</h2>
-    <app-mini-info [subtract]="2" year="2020" time="2h30m"></app-mini-info>
+    <app-mini-info [subtract]="2" year="{{date}}" time="{{length}}" [miniInfo]="genre"></app-mini-info>
     <p>
       {{description}}
     </p>
