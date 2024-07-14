@@ -2,8 +2,8 @@
   <div class="s-container">
 <!--    <div class="s-container2">-->
     <div class="s-wrapper">
-      <img class="s-input-search-icon" src="assets/Icons/search2.svg" alt="" (click)="fullSearch2(inputField.value)">
-      <input class="s-input" #inputField (input)="quickSearch(inputField.value)" (keydown)="fullSearch($event,inputField.value)" placeholder="Search">
+      <img class="s-input-search-icon" src="assets/Icons/search2.svg" alt="" >
+      <input class="s-input" #inputField (input)="quickSearch(inputField.value)"  placeholder="Search">
       <div class="s-close-container" (click)="toggleSearch()">
         <img class="s-close" alt="" src="assets/Icons/close2.svg" >
       </div>
@@ -17,6 +17,10 @@
     <div class="s-search-card-container" *ngIf="displaySearched">
       <div class="loader" *ngIf="loading"></div>
       <app-card-show-case *ngIf="!loading" [cardsData]="searchedResult" [showTitle]="false" (click)="toggleSearch()"></app-card-show-case>
+      <div *ngIf="!loading" class="s-button-container">
+        <button *ngIf="page !== 1" class="search-change-page-button" (click)="changePage(inputField.value,page - 1)">Back</button>
+        <button *ngIf="page !== totalPage" class="search-change-page-button" (click)="changePage(inputField.value,page + 1)">Next</button>
+      </div>
     </div>
   </div>
   <div class="s-cover" (click)="toggleSearch()"></div>

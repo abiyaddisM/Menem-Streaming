@@ -28,6 +28,8 @@ export class SearchComponent implements OnDestroy,OnInit,AfterViewInit  {
   searchedResult:any
   loading = false;
   cards:any[] = []
+  totalPage = 1
+  page = 1
   constructor(private search:GetMultiSearchService,
               private searchHistory:SearchHistoryService
             ) {
@@ -62,27 +64,14 @@ export class SearchComponent implements OnDestroy,OnInit,AfterViewInit  {
       .subscribe(data =>{
         this.loading = false
         this.searchedResult = data.results;
+        this.totalPage = data.total_pages;
       })
   }
-  fullSearch(event:KeyboardEvent,value:string){
-    if(value.length === 0 || /^\s*$/.test(value)){
-      this.displaySearched = false
-      return
-    }
-    if (event.key === 'Enter') {
+  changePage(value:string,page:number){
+      this.page = page;
       this.displaySearched = true
       this.loading = true
-       this.search.getSearches(value)
-         .subscribe(data =>{
-         this.loading = false
-         this.searchedResult = data.results;
-       })
-    }
-  }
-  fullSearch2(value:string){
-      this.displaySearched = true
-      this.loading = true
-        this.search.getSearches(value)
+        this.search.getSearches(value,page)
           .subscribe(data =>{
             this.loading = false
             this.searchedResult = data.results;

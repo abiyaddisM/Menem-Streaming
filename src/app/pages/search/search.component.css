@@ -88,6 +88,8 @@
   min-height: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
   padding-bottom: 400px;
 }
 app-card-show-case{
@@ -120,6 +122,28 @@ app-card-show-case{
   height: 60px;
   animation: spin 1s linear infinite;
   margin-top: 160px;
+}
+.search-change-page-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #EEEEEE;
+  font-size: clamp(0.8rem,1.3vw,0.85rem);
+  font-weight: 500;
+  background-color: rgba(161, 161, 161, 0.69);
+  padding: 12px clamp(15px,2.5vw,26px);
+  border-radius: 8px;
+  backdrop-filter: blur(6px);
+  cursor: pointer;
+  transition: 0.2s;
+}
+.search-change-page-button:hover{
+  background-color: rgba(161, 161, 161, 0.83);
+
+}
+.s-button-container{
+  display: flex;
+  gap: 10px;
 }
 app-card-show-case{
   width: 100%;
