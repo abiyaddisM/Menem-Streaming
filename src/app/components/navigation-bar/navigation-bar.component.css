@@ -8,8 +8,10 @@
   background-color: rgba(255, 255, 255, 0);
   z-index: 5;
   margin-top: 30px;
-  display: flex;
-  justify-content: space-between;
+  /*display: flex;*/
+  /*justify-content: space-between;*/
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
   /*width: min(90%,1550px);*/
   width: 90%;
@@ -17,12 +19,13 @@
 }
 .n-b-logo-container{
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: left;
   gap: 10px;
 }
 .n-b-side-bar-button{
   display: flex;
+
 
 }
 .n-b-menu-button{
@@ -49,19 +52,25 @@
 }
 .nav-wrapper .nav-left{
   display: flex;
-  justify-content: center;
+  justify-content: right;
   align-items: center;
   gap: 30px;
 }
 .nav-ul{
   display: flex;
   gap: 35px;
+  justify-content: center;
 }
 .nav-a{
   text-decoration: none;
   font-weight: 400;
   color: #CBCBCB;
   font-size: 0.9rem;
+  transition: 0.2s;
+}
+.nav-a:hover {
+  color: #e7e7e7;
+  transition: 0.2s;
 }
 .nav-active{
   color: white;
@@ -112,6 +121,10 @@
 
 }
 @media (max-width: 980px) {
+  .nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
   .nav-ul{
     display: none;
   }
