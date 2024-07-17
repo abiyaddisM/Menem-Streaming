@@ -32,6 +32,7 @@ import {
 } from "./directives/prevent-unwanted-clicks.directive";
 import { TvShowViewPageComponent } from './pages/tv-show-view-page/tv-show-view-page.component';
 import {MovieViewPageComponent} from "./pages/movie-view-page/movie-view-page.component";
+import { FooterComponent } from './components/footer/footer.component';
 
 
 
@@ -59,7 +60,8 @@ import {MovieViewPageComponent} from "./pages/movie-view-page/movie-view-page.co
         InputFieldComponent,
         PreventMalvertisementDirective,
         TvShowViewPageComponent,
-        MovieViewPageComponent
+        MovieViewPageComponent,
+        FooterComponent
     ],
     imports: [
         BrowserModule,
