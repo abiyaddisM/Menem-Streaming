@@ -1,14 +1,16 @@
-import { Component } from '@angular/core';
+import {AfterViewInit, Component} from '@angular/core';
 import {animate, style, transition, trigger} from "@angular/animations";
 import {GetTrendingNowService} from "../../services/GET/get-trending-now.service";
+import { getAnalytics, logEvent } from "firebase/analytics";
 
+// @ts-ignore
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.css'],
 
 })
-export class HomePageComponent {
+export class HomePageComponent implements AfterViewInit{
   constructor(private getTrendingNowService: GetTrendingNowService) { }
   trendingNow:any
   trendingNowLoader = false;
@@ -41,5 +43,13 @@ export class HomePageComponent {
       },
       error => alert(error)
     )
+  }
+
+
+  ngAfterViewInit(): void {
+    const analytics = getAnalytics();
+    logEvent(analytics, 'notification_received');
+    console.log("Works")
+
   }
 }

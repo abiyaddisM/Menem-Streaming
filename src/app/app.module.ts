@@ -33,9 +33,13 @@ import {
 import { TvShowViewPageComponent } from './pages/tv-show-view-page/tv-show-view-page.component';
 import {MovieViewPageComponent} from "./pages/movie-view-page/movie-view-page.component";
 import { FooterComponent } from './components/footer/footer.component';
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+import {environment} from "../ environment";
 
 
-
+const app = initializeApp(environment.firebase);
+export const analytics = getAnalytics(app);
 @NgModule({
     declarations: [
         AppComponent,
@@ -70,7 +74,7 @@ import { FooterComponent } from './components/footer/footer.component';
         AppRoutingModule,
         HttpClientModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
     ],
   providers: [],
   bootstrap: [AppComponent]
