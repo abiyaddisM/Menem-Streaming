@@ -33,6 +33,7 @@ export class HomePageComponent implements AfterViewInit{
       data => {
         this.popularMovieLoader = false
         this.popularMovie = data.results
+        console.log(data.results)
       },
       error => alert(error)
     )

@@ -1,12 +1,13 @@
 import {AfterViewInit, Component, ElementRef, HostListener, Input, OnInit, ViewChild} from '@angular/core';
 
+// @ts-ignore
 @Component({
   selector: 'app-card-show-case',
   templateUrl: './card-show-case.component.html',
   styleUrls: ['./card-show-case.component.css']
 })
 
-export class CardShowCaseComponent implements AfterViewInit{
+export class CardShowCaseComponent implements AfterViewInit,OnInit{
   // @ts-ignore
   @ViewChild("cardContainer") cardContainer:ElementRef
   @Input() cardsData:any
@@ -14,6 +15,7 @@ export class CardShowCaseComponent implements AfterViewInit{
   @Input() title = ''
   @Input() width = '100'
   @Input() cardLoader = false;
+  @Input() isTvShow = false
   cardLimit:number = 0
 
   checkTitle(title:any){
@@ -54,5 +56,11 @@ export class CardShowCaseComponent implements AfterViewInit{
   }
 
   protected readonly Array = Array;
+
+  ngOnInit(): void {
+    // console.log("Hey")
+    // console.log(this.cardsData)
+
+  }
 }
 

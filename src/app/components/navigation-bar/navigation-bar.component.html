@@ -19,7 +19,7 @@
       <button class="nav-sign-in-button" routerLink="/sign-in" *ngIf="!authService.isLoggedIn()">Sign In</button>
       <div class="nav-search-container" [class.nav-search-container]="deviceService.isDesktop()" >
         <app-icon-button id="nav-search" class="nav-search" (click)="toggleSearch()"></app-icon-button>
-        <label *ngIf="deviceService.isDesktop()" for="nav-search">Ctrl + Space</label>
+        <label *ngIf="deviceService.isDesktop() && !authService.isLoggedIn()" for="nav-search">Ctrl + Space</label>
       </div>
       <a class="nav-profile" *ngIf="authService.isLoggedIn()" (click)="authService.logout()">
         <img src="assets/Icons/profile-icon.png" alt="">

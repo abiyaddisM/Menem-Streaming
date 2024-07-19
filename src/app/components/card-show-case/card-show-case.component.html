@@ -3,7 +3,7 @@
     <h2 class="c-s-c-title" *ngIf="showTitle">{{title}}</h2>
     <div class="c-c-c-card-container" #cardContainer>
       <div *ngFor="let card of cardsData; let i = index">
-        <app-cards *ngIf="i  < cardLimit"  [title]="checkTitle(card)" [id]="card.id" [imageUrl]="'https://image.tmdb.org/t/p/w300' + card.poster_path" [rating]="card.vote_average" [genre]="card.genre_ids" [mediaType]="card.media_type"/>
+        <app-cards *ngIf="i  < cardLimit"  [title]="checkTitle(card)" [id]="card.id" [imageUrl]="'https://image.tmdb.org/t/p/w300' + card.poster_path" [rating]="card.vote_average" [genre]="card.genre_ids" [mediaType]="isTvShow ? 'tv' : card.media_type"/>
       </div>
     </div>
     <div *ngIf="cardLoader" class="c-c-c-card-container">
