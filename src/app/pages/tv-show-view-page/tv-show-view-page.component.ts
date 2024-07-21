@@ -1,4 +1,4 @@
-import {Component, ElementRef, ViewChild} from '@angular/core';
+import {Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
 import {DomSanitizer, SafeResourceUrl} from "@angular/platform-browser";
 import {ActivatedRoute, Router} from "@angular/router";
 import {GetTvDetailService} from "../../services/GET/get-tv-detail.service";
@@ -11,32 +11,19 @@ import {format} from "date-fns";
   templateUrl: './tv-show-view-page.component.html',
   styleUrls: ['./tv-show-view-page.component.css']
 })
-export class TvShowViewPageComponent {
+export class TvShowViewPageComponent implements OnInit{
   // @ts-ignore
   @ViewChild('elementRef', { static: false }) elementRef: ElementRef;
-  // @ts-ignore
-  elementHeight: number;
-  // @ts-ignore
-  id: string;
-  // @ts-ignore
-  mediaType:string;
-  // @ts-ignore
-  videoUrl: SafeResourceUrl;
-  // @ts-ignore
-  backdropImg:string
-  // @ts-ignore
+  elementHeight = 0;
+  id = '';
+  mediaType = '';
+  videoUrl: SafeResourceUrl = '';
+  backdropImg = ''
   season = ''
-  // @ts-ignore
   episode = ''
-  // @ts-ignore
-  details:any
-  // @ts-ignore
   latestAirDate:string =new Date().toISOString().split('T')[0];
-  // @ts-ignore
   numberOfSeasons = 0
-  // @ts-ignore
-  showInfo:showFormat[]
-  // @ts-ignore
+  showInfo:showFormat[] = []
   selectedValue: string = '1';
   constructor(private route: ActivatedRoute,
               private sanitizer: DomSanitizer,
@@ -49,6 +36,13 @@ export class TvShowViewPageComponent {
     this.getPrams()
   }
   ngAfterViewInit() {
+    if (this.elementRef.nativeElement) {
+      this.elementHeight = this.elementRef.nativeElement.offsetHeight;
+      console.log('Element height:', this.elementHeight);
+    }
+  }
+  @HostListener('window:resize', ['$event'])
+  onWindowResize(event: Event) {
     if (this.elementRef.nativeElement) {
       this.elementHeight = this.elementRef.nativeElement.offsetHeight;
       console.log('Element height:', this.elementHeight);
@@ -93,20 +87,6 @@ export class TvShowViewPageComponent {
       // console.log(res)
     })
   }
-  getSelected(){
-    return parseInt(this.selectedValue)
-  }
-  changeEpisode(episode:number){
-    this.season = this.getSelected().toString()
-    this.episode = episode.toString();
-    this.router.navigate(['/view/tv', this.id],{queryParams: {season: this.season ,episode:this.episode}})
-    this.setVideoUrl()
-
-  }
-  formatDate(dateString: string): string {
-    return format(new Date(dateString), 'dd MMM yyyy');
-  }
-
   protected readonly Array = Array;
   protected readonly parseInt = parseInt;
 }

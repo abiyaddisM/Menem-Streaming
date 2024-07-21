@@ -36,6 +36,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import {environment} from "../ environment";
+import { EpisodeListComponent } from './components/episode-list/episode-list.component';
 
 
 const app = initializeApp(environment.firebase);
@@ -65,7 +66,8 @@ export const analytics = getAnalytics(app);
         PreventMalvertisementDirective,
         TvShowViewPageComponent,
         MovieViewPageComponent,
-        FooterComponent
+        FooterComponent,
+        EpisodeListComponent
     ],
     imports: [
         BrowserModule,

@@ -92,7 +92,7 @@ app-input-field{
   font-size: clamp(0.85rem,1.2vw,0.95rem);
   font-weight: 600;
   border-radius: 12px;
-  padding: 20px;
+  padding: clamp(16px,2vw,20px);
   background-color: #504E4E;
   color: #DDDDDD;
   cursor: pointer;
@@ -141,7 +141,7 @@ app-input-field{
   font-size: clamp(0.85rem,1.2vw,0.95rem);
   font-weight: bold;
   border-radius: 12px;
-  padding: 20px;
+  padding: clamp(16px,2vw,20px);
   background-color: rgb(206, 201, 201);
   color: #383636;
   cursor: pointer;

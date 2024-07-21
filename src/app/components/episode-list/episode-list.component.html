@@ -1,0 +1,17 @@
+<div class="v-p-seasons-container">
+  <div class="drop-down-wrapper">
+    <select  class="drop-down-selector" [(ngModel)]="selectedValue">
+      <option *ngFor="let _ of Array(this.numberOfSeasons); let i = index" [value]="i + 1" >Season {{i + 1}}</option>
+    </select>
+    <img src="assets/Icons/arrow.svg" class="custom-arrow">
+  </div>
+  <div *ngFor="let ep of showInfo[getSelected() - 1].episode,let i = index" >
+    <div class="v-p-episode-container" *ngIf="ep.air_date <= latestAirDate"  (click)="changeEpisode(i + 1)" [class.activeEp]="parseInt(season) === getSelected() && parseInt(episode) === i + 1"  >
+      <img class="v-p-episode-image" [src]="'https://image.tmdb.org/t/p/w300'+ep.still_path" width="160" alt="">
+      <div class="v-p-episode-info-container">
+        <h2 class="v-p-episode-title"> {{ep.episode_number}}. {{ep.name}}</h2>
+        <h3 class="v-p-episode-date">{{formatDate(ep.air_date)}}</h3>
+      </div>
+    </div>
+  </div>
+</div>

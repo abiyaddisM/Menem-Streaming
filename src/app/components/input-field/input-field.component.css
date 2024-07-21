@@ -3,8 +3,9 @@
 }
 .input{
   width: 100%;
-  font-size: clamp(0.86rem,1.2vw,0.93rem);
-  padding: 20px 25px;
+  font-size: clamp(0.85rem,1.2vw,0.93rem);
+
+  padding: clamp(16px,2vw,20px) 25px;
   background-color: rgba(70, 70, 70, 0.6);
   border-radius: 12px;
   color: #efefef;
@@ -16,6 +17,7 @@
 }
 .i-container img{
   position: absolute;
+  width: 20px;
   right: 20px;
   top: 50%;
   transform: translateY(-50%);
