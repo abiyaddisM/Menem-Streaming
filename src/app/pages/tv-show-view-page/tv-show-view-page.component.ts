@@ -25,6 +25,8 @@ export class TvShowViewPageComponent implements OnInit{
   numberOfSeasons = 0
   showInfo:showFormat[] = []
   selectedValue: string = '1';
+  // @ts-ignore
+  private routeSub: Subscription;
   constructor(private route: ActivatedRoute,
               private sanitizer: DomSanitizer,
               private getTvDetail:GetTvDetailService,
@@ -34,6 +36,12 @@ export class TvShowViewPageComponent implements OnInit{
   }
   ngOnInit() {
     this.getPrams()
+    this.routeSub = this.route.params.subscribe(params => {
+      this.reloadComponent();
+    });
+  }
+  reloadComponent(){
+
   }
   ngAfterViewInit() {
     if (this.elementRef.nativeElement) {
@@ -58,12 +66,8 @@ export class TvShowViewPageComponent implements OnInit{
       this.mediaType = "tv"
       this.selectedValue = this.season
       this.season === '0' && this.router.navigate(['/view','tv',this.id,'1','1'])
-      this.setVideoUrl()
       this.tvDetail()
     });
-  }
-  setVideoUrl(){
-    this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(`https://vidsrc.net/embed/${this.mediaType}/${this.id}/${this.season}/${this.episode}`);
   }
   tvDetail(){
     this.getTvDetail.getTvDetail(this.id).subscribe((res:any)=>{

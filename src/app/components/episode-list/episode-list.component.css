@@ -78,6 +78,13 @@ option{
 .v-p-episode-image{
   border-radius: 12px;
 }
+.v-p-episode-image-touched{
+  filter: grayscale(70%);
+  opacity: 0.8;
+}
+.v-p-episode-image-touched ~ .v-p-episode-info-container{
+  opacity: 0.7;
+}
 .v-p-episode-info-container{
   display: flex;
   justify-content: center;

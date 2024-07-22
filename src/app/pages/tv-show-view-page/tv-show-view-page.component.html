@@ -4,6 +4,6 @@
     <div appPreventMalvertisement>
       <iframe [src]="videoUrl" style="border:none;" allow="autoplay; fullscreen" allowfullscreen #elementRef  ></iframe>
     </div>
-    <app-episode-list [ngStyle]="{'height': elementHeight + 'px'}" [(videoUrl)]="videoUrl" [season]="season" [(episode)]="episode" [selectedValue]="selectedValue" [numberOfSeasons]="numberOfSeasons" [showInfo]="showInfo"  [id]="id"></app-episode-list>
+    <app-episode-list [ngStyle]="{'height': elementHeight + 'px'}" [(videoUrl)]="videoUrl" [season]="season" [episode]="episode" [selectedValue]="selectedValue" [numberOfSeasons]="numberOfSeasons" [showInfo]="showInfo"  [id]="id"></app-episode-list>
   </div>
 </div>

@@ -17,10 +17,18 @@ export class SearchCardComponent {
   }
   navigate(){
     if(this.mediaType === 'tv')
-      this.router.navigate(['/view', 'tv',this.id],{queryParams:{season:1,episode:1}})
+      this.router.navigate(['/view', 'tv',this.id],{queryParams:{season:1,episode:1}}).then(()=>{
+        // this.reloadCurrentRoute();
+      })
     else
       this.router.navigate(['/view', 'movie',this.id])
 
+  }
+  reloadCurrentRoute() {
+    const currentUrl = this.router.url;
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate([currentUrl]);
+    });
   }
 
 }
