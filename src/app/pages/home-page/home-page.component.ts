@@ -49,7 +49,7 @@ export class HomePageComponent implements AfterViewInit{
 
   ngAfterViewInit(): void {
     const analytics = getAnalytics();
-    logEvent(analytics, 'notification_received');
+    logEvent(analytics, 'Test_Abiy');
     console.log("Works")
 
   }
