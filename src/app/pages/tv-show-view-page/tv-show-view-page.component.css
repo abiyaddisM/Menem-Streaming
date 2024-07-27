@@ -44,7 +44,7 @@ app-episode-list{
 
 @media (max-width: 1300px) {
   app-episode-list{
-    min-height: 600px;
+    min-height: 450px;
 
   }
   .v-p-wrapper {

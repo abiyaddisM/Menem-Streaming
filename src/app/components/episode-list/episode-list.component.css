@@ -3,7 +3,6 @@
   width: 420px;
   height: 100%;
   padding: 20px;
-  /*max-width: 420px;*/
   background-color: rgba(39, 39, 39, 0.83);
   grid-column: 2/2;
   border-radius: 20px;
@@ -11,7 +10,6 @@
   display: flex;
   flex-direction: column;
   overflow: auto;
-  max-height: 100%;
   scrollbar-width: none;
 }
 .v-p-seasons-container::-webkit-scrollbar {

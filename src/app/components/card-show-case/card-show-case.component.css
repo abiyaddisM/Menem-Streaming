@@ -15,8 +15,8 @@
   padding-bottom: max(3vh,10px);
 }
 .c-c-c-card-container{
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(190px,1fr));
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(190px,1fr));
   grid-gap: 10px;
   justify-content: space-between;
 
