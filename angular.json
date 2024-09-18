@@ -61,10 +61,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "MovieStreamingService:build:production"
+              "buildTarget": "MovieStreamingService:build:production"
             },
             "development": {
-              "browserTarget": "MovieStreamingService:build:development"
+              "buildTarget": "MovieStreamingService:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -72,7 +72,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "MovieStreamingService:build"
+            "buildTarget": "MovieStreamingService:build"
           }
         },
         "test": {
