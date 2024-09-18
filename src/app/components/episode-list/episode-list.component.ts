@@ -47,7 +47,7 @@ export class EpisodeListComponent implements AfterViewInit,OnInit,OnDestroy{
     this.changeTouchedEpisode();
   }
   setVideoUrl(){
-    this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(`https://vidsrc.net/embed/tv/${this.id}/${this.season}/${this.episode}`);
+    // this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(`https://vidsrc.net/embed/tv/${this.id}/${this.season}/${this.episode}`);
   }
   ngOnInit(){
     this.setData()

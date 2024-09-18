@@ -1,9 +1,9 @@
 import {Component, HostListener, OnInit} from '@angular/core';
 import {fadeInOut} from "../../animations/fade-animation";
 import {animate, style, transition, trigger} from "@angular/animations";
-import {AuthService} from "../../services/auth-service.service";
+import {AuthService} from "../../services/auth-service/auth-service.service";
 import {JwtHelperService} from "@auth0/angular-jwt";
-import {DeviceService} from "../../services/device.service";
+import {DeviceService} from "../../services/device-service/device.service";
 
 @Component({
   selector: 'app-navigation-bar',

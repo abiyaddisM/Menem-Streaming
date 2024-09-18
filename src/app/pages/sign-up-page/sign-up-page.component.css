@@ -38,6 +38,9 @@
   position: relative;
   transition: 0.4s;
   overflow: hidden;
+  background-position: center; /* Positions the image at the center */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-size: cover;
 }
 .s-i-p-cover-2{
   position: absolute;
@@ -49,6 +52,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
 }
 
 .s-i-p-wrapper{
@@ -127,8 +131,12 @@ app-input-field{
   border-radius: 10px;
   font-size: 0.9rem;
 }
+.s-i-p-alert-container{
+
+}
 .s-i-p-alert{
-  color: rgba(248, 43, 43, 0.8);
+  font-size: 14px;
+  color: rgba(182, 12, 12, 0.8);
 }
 .s-i-p-line{
   height: 3px;
@@ -142,7 +150,7 @@ app-input-field{
   font-weight: bold;
   border-radius: 12px;
   padding: clamp(16px,2vw,20px);
-  background-color: rgb(206, 201, 201);
+  background-color: rgba(206, 201, 201, 0.27);
   color: #383636;
   cursor: pointer;
   transition: 0.2s;
@@ -151,7 +159,10 @@ app-input-field{
   align-items: center;
   gap: 10px;
 }
-.s-i-p-button:hover {
+.s-i-p-button-active{
+  background-color: rgb(206, 201, 201);
+}
+.s-i-p-button-active:hover {
   background-color: rgb(234, 231, 231);
 
   transition: 0.2s;

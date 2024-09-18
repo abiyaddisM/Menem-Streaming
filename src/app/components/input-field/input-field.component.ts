@@ -14,7 +14,8 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
   ]
 })
 export class InputFieldComponent implements ControlValueAccessor{
-    @Input() isPassword = false
+  @Input() isInvalid:boolean | undefined = false
+  @Input() isPassword = false
     @Input() placeholder = ''
     showPassword = false
     eyePath = 'assets/Icons/eye-slash.svg'
@@ -63,5 +64,13 @@ export class InputFieldComponent implements ControlValueAccessor{
     this.value = value;
     this.onChange(value);
     this.onTouched();
+  }
+  isFocused: boolean = false;
+
+  onFocus() {
+    this.isFocused = true;
+  }
+  onBlur() {
+    this.isFocused = false;
   }
 }

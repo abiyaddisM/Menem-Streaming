@@ -37,6 +37,7 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import {environment} from "../ environment";
 import { EpisodeListComponent } from './components/episode-list/episode-list.component';
+import { SignUpPageComponent } from './pages/sign-up-page/sign-up-page.component';
 
 
 const app = initializeApp(environment.firebase);
@@ -67,7 +68,8 @@ export const analytics = getAnalytics(app);
         TvShowViewPageComponent,
         MovieViewPageComponent,
         FooterComponent,
-        EpisodeListComponent
+        EpisodeListComponent,
+        SignUpPageComponent,
     ],
     imports: [
         BrowserModule,

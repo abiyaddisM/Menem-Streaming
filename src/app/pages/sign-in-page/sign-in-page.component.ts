@@ -3,7 +3,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
 import {filter} from "rxjs";
 import {slideLeftOut, slideRightIn, slideRightOut} from "../../animations/slide-animation";
-import {AuthService} from "../../services/auth-service.service";
+import {AuthService} from "../../services/auth-service/auth-service.service";
 import {response} from "express";
 
 @Component({
@@ -17,7 +17,7 @@ export class SignInPageComponent{
 
 
   form = new FormGroup({
-    email: new FormControl('',Validators.required),
+    identifier: new FormControl('',Validators.required),
     password: new FormControl('',Validators.required)
   })
   constructor(private authService:AuthService,private route:Router) {

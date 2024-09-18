@@ -5,9 +5,10 @@ import {PlaylistPageComponent} from "./pages/playlist-page/playlist-page.compone
 import {ViewPageComponent} from "./pages/view-page/view-page.component";
 import {AboutPageComponent} from "./pages/about-page/about-page.component";
 import {SignInPageComponent} from "./pages/sign-in-page/sign-in-page.component";
-import {AuthGuard} from "./services/auth-guard.service";
+import {AuthGuard} from "./services/auth-guard-service/auth-guard.service";
 import {MovieViewPageComponent} from "./pages/movie-view-page/movie-view-page.component";
 import {TvShowViewPageComponent} from "./pages/tv-show-view-page/tv-show-view-page.component";
+import {SignUpPageComponent} from "./pages/sign-up-page/sign-up-page.component";
 
 const routes:Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -18,7 +19,7 @@ const routes:Routes = [
   {path: 'view/tv/:id', component: TvShowViewPageComponent},
   {path: 'about', component: AboutPageComponent},
   {path: 'sign-in', component: SignInPageComponent},
-  {path: 'sign-up', component: SignInPageComponent},
+  {path: 'sign-up', component: SignUpPageComponent},
 
 ]
 @NgModule({

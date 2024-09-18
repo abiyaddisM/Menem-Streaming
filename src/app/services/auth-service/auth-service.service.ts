@@ -12,11 +12,10 @@ export class AuthService {
   }
 
   login(credentials:any) {
-    console.log("waiting")
-    return this.http.post('https://auth.bizawit.com/api/authenticate', credentials)
+      return this.http.post('http://localhost:3000/api/v1/auth', credentials)
       .pipe(map((response:any) =>{
         console.log("Done")
-
+        console.log(response)
         if(response.success){
           localStorage.setItem("token",response.token);
         }
@@ -30,13 +29,13 @@ export class AuthService {
   }
 
   isLoggedIn() {
-
     let jwtHelper = new JwtHelperService()
     let token:string = localStorage.getItem('token')!
     if(!token)
       return false
-    let expirationDate = jwtHelper.getTokenExpirationDate(token)
+    // let expirationDate = jwtHelper.getTokenExpirationDate(token)
     let isExpired = jwtHelper.isTokenExpired(token)
+    console.log('token',jwtHelper.decodeToken(token))
     return !isExpired;
   }
 }

@@ -1,0 +1,57 @@
+<section class="s-i-p-section-container" [ngStyle]="{'background-image': 'url(https://image.tmdb.org/t/p/original/dfmPbyeZZSz3bekeESvMJaH91gS.jpg)'}">
+  <div class="s-i-p-cover"></div>
+  <div class="s-i-p-container">
+    <div class="s-i-p-container-2">
+
+      <form [formGroup]="form" #f='ngForm'  (ngSubmit)="signUp(f.value)"  class="s-i-p-wrapper" >
+        <img class="s-i-p-icon" src="assets/Icons/star.svg" alt="">
+        <div class="s-i-p-title-container">
+          <h1 class="s-i-p-main-title">Want to Join?</h1>
+          <h2 class="s-i-p-second-title">Just send your info over</h2>
+        </div>
+        <div class="s-i-p-error-invalid" *ngIf="invalidError">
+          Invalid Email or Password
+        </div>
+        <app-input-field formControlName="username" placeholder="Username" [isInvalid]="username?.invalid && username?.touched ">
+          <div *ngIf="username?.touched ">
+            <div *ngIf="username?.errors?.['required']" class="s-i-p-alert">Username is required</div>
+            <div *ngIf="username?.errors?.['usernameTaken']" class="s-i-p-alert">Username is taken</div>
+            <div *ngIf="username?.errors?.['minlength']" class="s-i-p-alert">Minimum 4 characters</div>
+            <div *ngIf="username?.errors?.['maxlength']" class="s-i-p-alert">Maximum 30 characters</div>
+            <div *ngIf="username?.errors?.['invalidCharacters']" class="s-i-p-alert">invalid Characters</div>
+          </div>
+        </app-input-field>
+        <app-input-field formControlName="email" placeholder="Email" [isInvalid]="email?.invalid && email?.touched ">
+          <div *ngIf="email?.touched ">
+            <div *ngIf="email?.errors?.['required']" class="s-i-p-alert">Email is required</div>
+            <div *ngIf="email?.errors?.['email']" class="s-i-p-alert">Valid email format</div>
+            <div *ngIf="email?.errors?.['emailTaken']" class="s-i-p-alert">Email is taken</div>
+            <div *ngIf="email?.errors?.['maxlength']" class="s-i-p-alert">Maximum 50 characters</div>
+
+
+          </div>
+        </app-input-field>
+        <app-input-field formControlName="password" placeholder="Password" [isPassword]="true" [isInvalid]="password?.invalid && password?.touched ">
+          <div *ngIf = "password?.touched ">
+            <div *ngIf="password?.errors?.['required']" class="s-i-p-alert">Password is required</div>
+            <div *ngIf="password?.errors?.['cannotContainSpace']" class="s-i-p-alert">Can not contain spaces</div>
+          </div>
+        </app-input-field>
+        <app-input-field formControlName="confirmPassword" placeholder="Confirm Password" [isPassword]="true" [isInvalid]="confirmPassword?.invalid && confirmPassword?.touched ">
+          <div *ngIf = "confirmPassword?.touched " class="s-i-p-alert-container">
+            <div *ngIf="confirmPassword?.errors?.['passwordsMismatch']" class="s-i-p-alert">Passwords must match</div>
+            <div *ngIf="confirmPassword?.errors?.['required']" class="s-i-p-alert">Password is required</div>
+            <div *ngIf="confirmPassword?.errors?.['cannotContainSpace']" class="s-i-p-alert">Can not contain spaces</div>
+          </div>
+        </app-input-field>
+
+        <button [class]="!form.valid ? 's-i-p-button' : 's-i-p-button s-i-p-button-active'" type="submit">Sign Up <div *ngIf="loading" class="loader" ></div> </button>
+        <p class="s-i-p-sign-up-text">Already have an account? <a routerLink="/sign-in" class="s-i-p-sign-up-button">Sign In</a></p>
+      </form>
+      <div class="s-i-p-image" [ngStyle]="{'background-image': 'url(https://image.tmdb.org/t/p/original/dfmPbyeZZSz3bekeESvMJaH91gS.jpg)'}">
+        <div class="s-i-p-cover-2"></div>
+      </div>
+    </div>
+
+  </div>
+</section>

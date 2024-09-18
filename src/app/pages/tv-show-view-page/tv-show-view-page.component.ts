@@ -3,7 +3,7 @@ import {DomSanitizer, SafeResourceUrl} from "@angular/platform-browser";
 import {ActivatedRoute, Router} from "@angular/router";
 import {GetTvDetailService} from "../../services/GET/get-tv-detail.service";
 import {GetMovieDetailService} from "../../services/GET/get-movie-detail.service";
-import {SearchHistoryService} from "../../services/search-history.service";
+import {SearchHistoryService} from "../../services/search-history-service/search-history.service";
 import {format} from "date-fns";
 
 @Component({
@@ -70,7 +70,9 @@ export class TvShowViewPageComponent implements OnInit{
     });
   }
   tvDetail(){
-    this.getTvDetail.getTvDetail(this.id).subscribe((res:any)=>{
+    this.getTvDetail.getTvDetail(this.id)
+      .subscribe((res:any)=>{
+        console.log('Tv results',res);
       this.searchHistory.addToHistory(res,'tv')
       this.backdropImg = res.backdrop_path;
       this.numberOfSeasons = res.number_of_seasons;

@@ -10,7 +10,7 @@ import {
 import { OnInit, OnDestroy } from '@angular/core';
 import {fadeInOut} from "../../animations/fade-animation";
 import {GetMultiSearchService} from "../../services/GET/get-multi-search.service";
-import {SearchHistoryService} from "../../services/search-history.service";
+import {SearchHistoryService} from "../../services/search-history-service/search-history.service";
 
 @Component({
   selector: 'app-search',

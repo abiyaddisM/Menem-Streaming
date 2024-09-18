@@ -3,7 +3,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import {GetTvDetailService} from "../../services/GET/get-tv-detail.service";
 import {GetMovieDetailService} from "../../services/GET/get-movie-detail.service";
-import {SearchHistoryService} from "../../services/search-history.service";
+import {SearchHistoryService} from "../../services/search-history-service/search-history.service";
 import { format } from 'date-fns';
 @Component({
   selector: 'app-view-page',
