@@ -10,6 +10,14 @@ import {error} from "@angular/compiler-cli/src/transformers/util";
 export class AuthService {
   constructor(private http: HttpClient) {
   }
+  getUser(){
+    if(!this.isLoggedIn())
+      return
+    let token:string = localStorage.getItem('token')!
+    let jwtHelper = new JwtHelperService()
+    const decoded = jwtHelper.decodeToken(token);
+    return decoded.user.id;
+  }
 
   login(credentials:any) {
       return this.http.post('http://localhost:3000/api/v1/auth', credentials)
@@ -35,7 +43,6 @@ export class AuthService {
       return false
     // let expirationDate = jwtHelper.getTokenExpirationDate(token)
     let isExpired = jwtHelper.isTokenExpired(token)
-    console.log('token',jwtHelper.decodeToken(token))
     return !isExpired;
   }
 }

@@ -12,8 +12,8 @@
       <div class="m-info" [ngStyle]="{'font-size': 'clamp('+ sizeMinTwo(size) + 'px,' + '0.9vw,'+ size +'px'}">{{year}}</div>
       <div *ngIf="i < miniInfo.length - 1 && i < 1" class="circle" ></div>
     </div>
-    <h4 class="m-info" *ngIf="i < 2"  [ngStyle]="{'font-size': 'clamp('+ sizeMinTwo(size) + 'px,' + '0.9vw,'+ size +'px'}" >{{getGenreName(min)}}</h4>
-    <div *ngIf="i < miniInfo.length - 1 && i < 1" class="circle"></div>
+    <h4 class="m-info" *ngIf="i < sizeOfGenre"  [ngStyle]="{'font-size': 'clamp('+ sizeMinTwo(size) + 'px,' + '0.9vw,'+ size +'px'}" >{{getGenreName(min)}}</h4>
+    <div *ngIf="i < miniInfo.length - 1 && i < sizeOfGenre - 1" class="circle"></div>
   </div>
 </div>
 

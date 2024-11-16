@@ -1,0 +1,12 @@
+@if (state){
+  <div class="container" @fadeInOut>
+    <div class="dialog-container" >
+      <h1 class="title">Are you sure?</h1>
+      <p class="message">Press confirm if you want to proceed</p>
+      <div class="button-container">
+        <button (click)="onCancel()">Cancel</button>
+        <button (click)="onConfirm()"><ng-content/></button>
+      </div>
+    </div>
+  </div>
+}

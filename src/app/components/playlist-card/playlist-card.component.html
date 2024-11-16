@@ -1,0 +1,7 @@
+<div class="container" (click)="toggleSelected()" >
+  <div *ngIf="isInSelectMode" [class.selected-active]="isSelected" class="circle"><div></div></div>
+  <img class="image" [class.selected]="isInSelectMode" [src]="src" alt="">
+<!--  <div class="image"></div>-->
+  <h2 class="title" [class.selected]="isInSelectMode">{{title}}</h2>
+  <p class="description" [class.selected]="isInSelectMode">{{description}}</p>
+</div>

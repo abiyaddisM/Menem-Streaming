@@ -9,11 +9,13 @@ import {AuthGuard} from "./services/auth-guard-service/auth-guard.service";
 import {MovieViewPageComponent} from "./pages/movie-view-page/movie-view-page.component";
 import {TvShowViewPageComponent} from "./pages/tv-show-view-page/tv-show-view-page.component";
 import {SignUpPageComponent} from "./pages/sign-up-page/sign-up-page.component";
+import {PlaylistViewPageComponent} from "./pages/playlist-view-page/playlist-view-page.component";
 
 const routes:Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   {path: 'home', component: HomePageComponent},
   {path: 'playlist', component: PlaylistPageComponent,canActivate:[AuthGuard]},
+  {path: 'playlist/:id', component: PlaylistViewPageComponent,canActivate:[AuthGuard]},
   {path: 'view', component: ViewPageComponent},
   {path: 'view/movie/:id', component: MovieViewPageComponent},
   {path: 'view/tv/:id', component: TvShowViewPageComponent},

@@ -1,0 +1,74 @@
+.container{
+  width: 100%;
+  padding: 20px;
+  border-radius: 16px;
+  transition: 0.2s;
+  cursor: pointer;
+  position: relative;
+  height: 100%  ;
+}
+.container:hover {
+  transition: 0.2s;
+  background-color: rgba(197, 197, 197, 0.05);
+
+}
+.image{
+  width: 100%;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  z-index: 1;
+  transition: opacity 0.2s;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: repeat;
+    background-image: url("data:image/svg+xml;utf8,%3Csvg viewBox=%220 0 2000 1400%22 xmlns=%22http:%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cmask id=%22b%22 x=%220%22 y=%220%22 width=%222000%22 height=%221400%22%3E%3Cpath fill=%22url(%23a)%22 d=%22M0 0h2000v1400H0z%22%2F%3E%3C%2Fmask%3E%3Cpath fill=%22%23191919%22 d=%22M0 0h2000v1400H0z%22%2F%3E%3Cg mask=%22url(%23b)%22%3E%3Cg style=%22transform-origin:center center%22 fill=%22%23d3d3d3%22%3E%3Ccircle cx=%22280%22 cy=%2228%22 r=%222.8%22%2F%3E%3Ccircle cx=%22672%22 cy=%2228%22 r=%222.8%22%2F%3E%3Ccircle cx=%221120%22 cy=%2228%22 r=%222.8%22%2F%3E%3Ccircle cx=%221176%22 cy=%2228%22 r=%222.8%22%2F%3E%3Ccircle cx=%221512%22 cy=%2228%22 r=%222.8%22%2F%3E%3Ccircle cx=%22364%22 cy=%2284%22 r=%222.8%22%2F%3E%3Ccircle cx=%22812%22 cy=%2284%22 r=%222.8%22%2F%3E%3Ccircle cx=%22868%22 cy=%2284%22 r=%222.8%22%2F%3E%3Ccircle cx=%221036%22 cy=%2284%22 r=%222.8%22%2F%3E%3Ccircle cx=%221204%22 cy=%2284%22 r=%222.8%22%2F%3E%3Ccircle cx=%221540%22 cy=%2284%22 r=%222.8%22%2F%3E%3Ccircle cx=%221064%22 cy=%22140%22 r=%222.8%22%2F%3E%3Ccircle cx=%221904%22 cy=%22140%22 r=%222.8%22%2F%3E%3Ccircle cx=%22140%22 cy=%22196%22 r=%222.8%22%2F%3E%3Ccircle cx=%22644%22 cy=%22196%22 r=%222.8%22%2F%3E%3Ccircle cx=%22756%22 cy=%22196%22 r=%222.8%22%2F%3E%3Ccircle cx=%22812%22 cy=%22196%22 r=%222.8%22%2F%3E%3Ccircle cx=%221708%22 cy=%22196%22 r=%222.8%22%2F%3E%3Ccircle cx=%22952%22 cy=%22252%22 r=%222.8%22%2F%3E%3Ccircle cx=%221736%22 cy=%22252%22 r=%222.8%22%2F%3E%3Ccircle cx=%221792%22 cy=%22252%22 r=%222.8%22%2F%3E%3Ccircle cx=%2284%22 cy=%22308%22 r=%222.8%22%2F%3E%3Ccircle cx=%22252%22 cy=%22308%22 r=%222.8%22%2F%3E%3Ccircle cx=%22364%22 cy=%22308%22 r=%222.8%22%2F%3E%3Ccircle cx=%22476%22 cy=%22308%22 r=%222.8%22%2F%3E%3Ccircle cx=%22532%22 cy=%22308%22 r=%222.8%22%2F%3E%3Ccircle cx=%221260%22 cy=%22308%22 r=%222.8%22%2F%3E%3Ccircle cx=%221316%22 cy=%22308%22 r=%222.8%22%2F%3E%3Ccircle cx=%221764%22 cy=%22308%22 r=%222.8%22%2F%3E%3Ccircle cx=%221820%22 cy=%22308%22 r=%222.8%22%2F%3E%3Ccircle cy=%22364%22 r=%222.8%22%2F%3E%3Ccircle cx=%22728%22 cy=%22364%22 r=%222.8%22%2F%3E%3Ccircle cx=%221344%22 cy=%22364%22 r=%222.8%22%2F%3E%3Ccircle cx=%221960%22 cy=%22364%22 r=%222.8%22%2F%3E%3Ccircle cx=%22812%22 cy=%22420%22 r=%222.8%22%2F%3E%3Ccircle cx=%221932%22 cy=%22420%22 r=%222.8%22%2F%3E%3Ccircle cx=%221120%22 cy=%22476%22 r=%222.8%22%2F%3E%3Ccircle cx=%221232%22 cy=%22476%22 r=%222.8%22%2F%3E%3Ccircle cx=%221400%22 cy=%22476%22 r=%222.8%22%2F%3E%3Ccircle cx=%221568%22 cy=%22476%22 r=%222.8%22%2F%3E%3Ccircle cx=%221792%22 cy=%22476%22 r=%222.8%22%2F%3E%3Ccircle cx=%221904%22 cy=%22476%22 r=%222.8%22%2F%3E%3Ccircle cx=%22308%22 cy=%22532%22 r=%222.8%22%2F%3E%3Ccircle cx=%22476%22 cy=%22532%22 r=%222.8%22%2F%3E%3Ccircle cx=%22700%22 cy=%22532%22 r=%222.8%22%2F%3E%3Ccircle cx=%221316%22 cy=%22532%22 r=%222.8%22%2F%3E%3Ccircle cx=%221764%22 cy=%22532%22 r=%222.8%22%2F%3E%3Ccircle cx=%221932%22 cy=%22532%22 r=%222.8%22%2F%3E%3Ccircle cx=%22224%22 cy=%22588%22 r=%222.8%22%2F%3E%3Ccircle cx=%221176%22 cy=%22588%22 r=%222.8%22%2F%3E%3Ccircle cx=%221960%22 cy=%22588%22 r=%222.8%22%2F%3E%3Ccircle cx=%221204%22 cy=%22644%22 r=%222.8%22%2F%3E%3Ccircle cx=%221260%22 cy=%22644%22 r=%222.8%22%2F%3E%3Ccircle cx=%221316%22 cy=%22644%22 r=%222.8%22%2F%3E%3Ccircle cx=%2256%22 cy=%22700%22 r=%222.8%22%2F%3E%3Ccircle cx=%22784%22 cy=%22700%22 r=%222.8%22%2F%3E%3Ccircle cx=%221400%22 cy=%22700%22 r=%222.8%22%2F%3E%3Ccircle cx=%221568%22 cy=%22700%22 r=%222.8%22%2F%3E%3Ccircle cx=%2284%22 cy=%22756%22 r=%222.8%22%2F%3E%3Ccircle cx=%22420%22 cy=%22756%22 r=%222.8%22%2F%3E%3Ccircle cx=%22588%22 cy=%22756%22 r=%222.8%22%2F%3E%3Ccircle cx=%221372%22 cy=%22756%22 r=%222.8%22%2F%3E%3Ccircle cx=%22224%22 cy=%22812%22 r=%222.8%22%2F%3E%3Ccircle cx=%22672%22 cy=%22812%22 r=%222.8%22%2F%3E%3Ccircle cx=%221456%22 cy=%22812%22 r=%222.8%22%2F%3E%3Ccircle cx=%22252%22 cy=%22868%22 r=%222.8%22%2F%3E%3Ccircle cx=%22308%22 cy=%22868%22 r=%222.8%22%2F%3E%3Ccircle cx=%22924%22 cy=%22868%22 r=%222.8%22%2F%3E%3Ccircle cx=%221932%22 cy=%22868%22 r=%222.8%22%2F%3E%3Ccircle cx=%221988%22 cy=%22868%22 r=%222.8%22%2F%3E%3Ccircle cx=%22672%22 cy=%22924%22 r=%222.8%22%2F%3E%3Ccircle cx=%221120%22 cy=%22924%22 r=%222.8%22%2F%3E%3Ccircle cx=%221456%22 cy=%22924%22 r=%222.8%22%2F%3E%3Ccircle cx=%221904%22 cy=%22924%22 r=%222.8%22%2F%3E%3Ccircle cx=%221148%22 cy=%22980%22 r=%222.8%22%2F%3E%3Ccircle cx=%221316%22 cy=%22980%22 r=%222.8%22%2F%3E%3Ccircle cx=%221652%22 cy=%22980%22 r=%222.8%22%2F%3E%3Ccircle cx=%221820%22 cy=%22980%22 r=%222.8%22%2F%3E%3Ccircle cx=%22168%22 cy=%221036%22 r=%222.8%22%2F%3E%3Ccircle cx=%221288%22 cy=%221036%22 r=%222.8%22%2F%3E%3Ccircle cx=%221792%22 cy=%221036%22 r=%222.8%22%2F%3E%3Ccircle cx=%221904%22 cy=%221036%22 r=%222.8%22%2F%3E%3Ccircle cx=%22924%22 cy=%221092%22 r=%222.8%22%2F%3E%3Ccircle cx=%22980%22 cy=%221092%22 r=%222.8%22%2F%3E%3Ccircle cx=%221036%22 cy=%221092%22 r=%222.8%22%2F%3E%3Ccircle cx=%221204%22 cy=%221092%22 r=%222.8%22%2F%3E%3Ccircle cx=%221316%22 cy=%221092%22 r=%222.8%22%2F%3E%3Ccircle cx=%22672%22 cy=%221148%22 r=%222.8%22%2F%3E%3Ccircle cx=%221008%22 cy=%221148%22 r=%222.8%22%2F%3E%3Ccircle cx=%221232%22 cy=%221148%22 r=%222.8%22%2F%3E%3Ccircle cx=%221624%22 cy=%221148%22 r=%222.8%22%2F%3E%3Ccircle cx=%2284%22 cy=%221204%22 r=%222.8%22%2F%3E%3Ccircle cx=%221148%22 cy=%221204%22 r=%222.8%22%2F%3E%3Ccircle cx=%22280%22 cy=%221260%22 r=%222.8%22%2F%3E%3Ccircle cx=%22952%22 cy=%221260%22 r=%222.8%22%2F%3E%3Ccircle cx=%221624%22 cy=%221260%22 r=%222.8%22%2F%3E%3Ccircle cx=%221792%22 cy=%221260%22 r=%222.8%22%2F%3E%3Ccircle cx=%22420%22 cy=%221316%22 r=%222.8%22%2F%3E%3Ccircle cx=%221316%22 cy=%221316%22 r=%222.8%22%2F%3E%3Ccircle cx=%221764%22 cy=%221316%22 r=%222.8%22%2F%3E%3Ccircle cx=%22784%22 cy=%221372%22 r=%222.8%22%2F%3E%3Ccircle cx=%221456%22 cy=%221372%22 r=%222.8%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3Cdefs%3E%3CradialGradient id=%22a%22%3E%3Cstop offset=%220%22 stop-color=%22%23fff%22%2F%3E%3Cstop offset=%221%22 stop-color=%22%23fff%22 stop-opacity=%22.2%22%2F%3E%3C%2FradialGradient%3E%3C%2Fdefs%3E%3C%2Fsvg%3E");
+
+}
+.title{
+  color: white;
+  font-size: 20px;
+  margin-bottom: 5px;
+  transition: opacity 0.2s;
+  display: -webkit-box;
+  -webkit-line-clamp:1; /* Limit to 3 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+}
+.description{
+  color: white;
+  font-size: 14px;
+  opacity: 0.8;
+  /*display: -webkit-box;*/
+  -webkit-line-clamp:2; /* Limit to 3 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: opacity 0.2s;
+
+
+}
+.circle{
+  width: 18px;
+  aspect-ratio: 1/1;
+  border-radius: 7px;
+  border: 2px solid rgb(211, 211, 211);
+  position: absolute;
+  right: 35px;
+  top: 35px;
+  z-index: 2;
+  padding: 2px;
+}
+.selected{
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+.selected-active div{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.76);
+  border-radius: 3px;
+}

@@ -9,6 +9,7 @@ import {getGenreName} from "../../functions/genreConvert";
 export class MiniInfoComponent {
   @Input() miniInfo = ['28','16'];
   @Input() size = 15;
+  @Input() sizeOfGenre = 2;
   @Input() rating = -1
   @Input() subtract = 0
   @Input() time = ''

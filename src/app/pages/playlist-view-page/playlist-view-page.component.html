@@ -1,0 +1,69 @@
+<app-confirm-dialog [state]="deleteState" (cancel)="toggleDeleteState()" >Remove</app-confirm-dialog>
+<div class="container">
+  <header class="header">
+    <div class="gradient-overlay"></div> <div class="rectangle"></div> <div class="rectangle"></div> <div class="rectangle"></div> <div class="rectangle"></div> <div class="rectangle"></div>
+    <div class="background-cover"></div>
+    <div class="description-container">
+      <h1 class="title">Summer Watch</h1>
+      <p class="description">Its ALl the shows of the summer 2024. It shows all the things about the things all over the place and the thing of the heven ... </p>
+    </div>
+    <div class="button-container">
+      <div class="button-left-container">
+        <div class="personal-info-container">
+          <p style="color: white">abiyaddis</p>
+          <div class="dot"></div>
+          <p>{{data.length + ' Movie / Tv shows' }}</p>
+        </div>
+        <img src="assets/Icons/edit.svg" alt="" class="icon" >
+        <img [src]="isInSelectMode ? './assets/Icons/tick-circle-active.svg' : './assets/Icons/tick-circle.svg'" alt="" class="icon" (click)="toggleSelectMode()">
+        <img *ngIf="isInSelectMode" src="assets/Icons/delete.svg" alt="" class="icon" (click)="toggleDeleteState()">
+      </div>
+      <div class="button-right-container">
+        <button class="button">Subscribe</button>
+        <select class="drop-down">
+          <option>Date added</option>
+          <option>asdas</option>
+        </select>
+        <input class="search" type="text" placeholder="search">
+
+      </div>
+    </div>
+  </header>
+  <div class="content-container">
+    <table>
+      <thead><tr>
+        <th class="hug">#</th>
+        <th>Title</th>
+        <th>Rating</th>
+        <th>Date added</th>
+      </tr>
+      </thead>
+      <br>
+  <tbody>
+     @for(d of data;track d.id;let i = $index){
+       <tr (contextmenu)="rightClick($event,i)" (click)="select(i)">
+         <td class="hug">
+          @if(!isInSelectMode){
+            <p class="number">{{i + 1}}</p>
+            <img class="play" src="assets/Icons/play2.svg" alt="">
+          } @else {
+            <div [class.selected-active]="selectedIndex.has(i)" class="circle"><div></div></div>
+          }
+         </td>
+         <td class="title-container" [class.selected]="isInSelectMode">
+           <img  class="img" [src]="'https://image.tmdb.org/t/p/w92' + d.image_path" alt="">
+           <div class="title-wrapper">
+             <p class="table-title" >{{d.name}}</p>
+             <p>{{d.content_type}}</p>
+           </div>
+         </td>
+         <td [class.selected]="isInSelectMode">{{i + 0.42}}</td>
+         <td [class.selected]="isInSelectMode">{{ DateConverter.dateConverter1(d.created_at)}}</td>
+       </tr>
+     }
+
+  </tbody>
+    </table>
+  </div>
+
+</div>

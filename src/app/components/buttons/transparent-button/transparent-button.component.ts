@@ -8,5 +8,7 @@ import {Component, Input} from '@angular/core';
 export class TransparentButtonComponent {
   @Input() iconImg = 'assets/Icons/play.svg'
   @Input() text = 'Stream'
+  @Input() iconSize = '18px'
+  @Input() fontSize = '16px'
 
 }

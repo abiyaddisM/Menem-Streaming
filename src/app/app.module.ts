@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { NgIconsModule } from '@ng-icons/core';
+import {saxAddOutline} from  '@ng-icons/iconsax/outline'
 import { AppComponent } from './app.component';
 import { MoveSliderComponent } from './components/move-slider/move-slider.component';
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
@@ -23,7 +24,7 @@ import { AboutPageComponent } from './pages/about-page/about-page.component';
 import {Routes} from "@angular/router";
 import {AppRoutingModule} from "./app-routing.module";
 import { SideNavigationButtonComponent } from './components/buttons/side-navigation-button/side-navigation-button.component';
-import {HttpClientModule} from "@angular/common/http";
+import { provideHttpClient, withInterceptorsFromDi } from "@angular/common/http";
 import { SignInPageComponent } from './pages/sign-in-page/sign-in-page.component';
 import { InputFieldComponent } from './components/input-field/input-field.component';
 import {FormControl, FormGroup, FormsModule, ReactiveFormsModule} from "@angular/forms";
@@ -38,49 +39,60 @@ import { getAnalytics } from "firebase/analytics";
 import {environment} from "../ environment";
 import { EpisodeListComponent } from './components/episode-list/episode-list.component';
 import { SignUpPageComponent } from './pages/sign-up-page/sign-up-page.component';
+import {PlaylistCardComponent} from "./components/playlist-card/playlist-card.component";
+import {ConfirmDialogComponent} from "./components/confirm-dialog/confirm-dialog.component";
+import {CreatePlaylistDialogComponent} from "./components/create-playlist-dialog/create-playlist-dialog.component";
+import {PlaylistViewPageComponent} from "./pages/playlist-view-page/playlist-view-page.component";
 
 
 const app = initializeApp(environment.firebase);
 export const analytics = getAnalytics(app);
 @NgModule({
-    declarations: [
-        AppComponent,
-        MoveSliderComponent,
-        NavigationBarComponent,
-        HomePageComponent,
-        MiniInfoComponent,
-        MainRecCardsComponent,
-        TransparentButtonComponent,
-        SliderSecIndComponent,
-        IconButtonComponent,
-        CardShowCaseComponent,
-        CardsComponent,
-        SearchComponent,
-        SearchCardComponent,
-        NaviationSideBarComponent,
-        ViewPageComponent,
-        PlaylistPageComponent,
-        AboutPageComponent,
-        SideNavigationButtonComponent,
-        SignInPageComponent,
-        InputFieldComponent,
-        PreventMalvertisementDirective,
-        TvShowViewPageComponent,
-        MovieViewPageComponent,
-        FooterComponent,
-        EpisodeListComponent,
-        SignUpPageComponent,
-    ],
-    imports: [
-        BrowserModule,
-        NgOptimizedImage,
-        BrowserAnimationsModule,
-        AppRoutingModule,
-        HttpClientModule,
-        FormsModule,
-        ReactiveFormsModule,
-    ],
-  providers: [],
-  bootstrap: [AppComponent]
+  declarations: [
+    AppComponent,
+    MoveSliderComponent,
+    NavigationBarComponent,
+    HomePageComponent,
+    MiniInfoComponent,
+    MainRecCardsComponent,
+    TransparentButtonComponent,
+    SliderSecIndComponent,
+    IconButtonComponent,
+    CardShowCaseComponent,
+    CardsComponent,
+    SearchComponent,
+    SearchCardComponent,
+    NaviationSideBarComponent,
+    ViewPageComponent,
+    AboutPageComponent,
+    SideNavigationButtonComponent,
+    SignInPageComponent,
+    InputFieldComponent,
+    PreventMalvertisementDirective,
+    TvShowViewPageComponent,
+    MovieViewPageComponent,
+    FooterComponent,
+    EpisodeListComponent,
+    SignUpPageComponent,
+    PlaylistPageComponent,
+    PlaylistCardComponent,
+    ConfirmDialogComponent,
+    CreatePlaylistDialogComponent,
+    PlaylistViewPageComponent,
+  ],
+  bootstrap: [AppComponent],
+
+  imports: [BrowserModule,
+    NgOptimizedImage,
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    FormsModule,
+    NgIconsModule.withIcons({saxAddOutline}),
+    ReactiveFormsModule],
+  exports: [
+    TransparentButtonComponent,
+    MovieViewPageComponent
+  ],
+  providers: [provideHttpClient(withInterceptorsFromDi())]
 })
 export class AppModule { }

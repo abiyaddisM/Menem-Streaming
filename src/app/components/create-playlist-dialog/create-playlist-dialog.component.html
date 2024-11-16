@@ -1,0 +1,20 @@
+@if(state){
+  <div class="container" @fadeInOut>
+    <div class="form-container">
+
+      <input class="input" type="text" placeholder="Title" [(ngModel)]="title">
+      <textarea class="input" placeholder="Desicription" rows="5" [(ngModel)]="description" ></textarea>
+      <div class="radio-box-container" (click)="toggleVisibility()">
+        <div [class.radio-box-right]="isPublic" class="radio-box"></div>
+        <div class="radio-box-click">Public</div>
+        <div class="radio-box-click">Private</div>
+      </div>
+
+      <div class="button-container">
+        <button (click)="onCancel()">Cancel</button>
+        <button (click)="onCreate()">Create</button>
+      </div>
+    </div>
+  </div>
+
+}

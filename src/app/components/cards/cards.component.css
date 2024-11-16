@@ -1,6 +1,6 @@
 .c-image{
   aspect-ratio: 2/3.2;
-  max-width: 230px;
+  max-width: 300px;
   width: 100%;
   background-position: center;
   background-color: #090808;
@@ -27,7 +27,7 @@
   background: linear-gradient(
     to bottom,
     rgba(0, 0, 0, 0) 36%,
-    rgba(0, 0, 0, 0.6) 100%
+    rgba(0, 0, 0, 0.77) 100%
   );
   width: 100%;
   height: 100%;

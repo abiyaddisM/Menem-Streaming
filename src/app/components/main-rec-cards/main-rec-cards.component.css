@@ -34,10 +34,15 @@ img{
 .text-wrapper p {
   color: #B0B0B0;
   font-size: clamp(0.9rem,1vw,1rem);
-
   font-weight: 500;
   max-width: 650px;
   line-height: 154%;
+  display: -webkit-box;
+  -webkit-line-clamp:2; /* Limit to 3 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: opacity 0.2s;
 }
 .text-wrapper .button-wrapper{
   display: flex;

@@ -1,1 +1,31 @@
-<p>playlist-page works!</p>
+<div class="container">
+  <app-confirm-dialog [state]="deleteState" (cancel)="toggleDeleteState()" (confirm)="deletePlaylist()">Delete</app-confirm-dialog>
+  <app-create-playlist-dialog [state]="createPlaylistState" (cancel)="toggleCreatePlaylistState()" (create)="createPlaylist($event)"/>
+  <div class="header-container">
+    <h1>Your playlist</h1>
+    <div class="button-container">
+      <app-transparent-button *ngIf="isInSelectMode" text="Delete" iconImg="./assets/Icons/delete.svg" (click)="toggleDeleteState()" iconSize="16px"/>
+      @if(!isLoading){
+        <app-transparent-button [text]="'Select'" [iconImg]="isInSelectMode ? './assets/Icons/tick-circle-active.svg' : './assets/Icons/tick-circle.svg'" (click)="toggleSelectMode()" iconSize="16px"/>
+
+      }
+      <app-transparent-button text="Create Playlist" iconImg="./assets/Icons/add.svg" iconSize="15px" (click)="toggleCreatePlaylistState()"/>
+      <!--      <app-transparent-button *ngIf="isInSelectMode" text="Edit" iconImg="./assets/Icons/edit.svg" iconSize="16px"/>-->
+    </div>
+  </div>
+  <div class="card-container">
+  @for(item of data;track item.title;let index = $index){
+    <app-playlist-card [routerLink]="isInSelectMode ? '/playlist' : '/playlist/' +  item.id"  [src]="item.src ? item.src : 'assets/Images/default-cover.png'" [id]="item.id" (onSelected)="toggleSelected(index,$event )" [isSelected]="item.isSelected" [title]=item.title [isInSelectMode]="isInSelectMode" [description]=item.description />
+  }
+
+    @if (isLoading){
+      <div  *ngFor="let card of Array(24).fill(0); let i = index" >
+        <div class="card_shape">
+          <div class="loading_image loading_card"></div>
+          <div class="loading_title loading_card" ></div>
+          <div class="loading_des loading_card" ></div>
+        </div>
+      </div>
+    }
+  </div>
+</div>
