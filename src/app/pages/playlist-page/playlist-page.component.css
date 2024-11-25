@@ -59,7 +59,7 @@ app-confirm-dialog{
   background: linear-gradient(
     110deg,
     rgba(255, 255, 255, 0) 40%,
-    rgba(30, 37, 43, 0.47) 50%,
+    rgba(38, 47, 55, 0.47) 50%,
     rgba(255, 255, 255, 0) 60%
   ) #1b1d21;
   border-radius: 12px;

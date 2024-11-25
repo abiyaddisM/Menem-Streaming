@@ -22,7 +22,7 @@ export class PlaylistPageComponent implements OnInit{
   }
   ngOnInit() {
     this.isLoading = true
-      this.playlistService.getPlaylist(this.authService.getUser())
+      this.playlistService.getUserPlaylist(this.authService.getUser())
         .subscribe(
           (res:any)=>{
             this.data = res.playlist

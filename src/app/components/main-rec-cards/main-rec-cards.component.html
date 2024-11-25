@@ -1,3 +1,4 @@
+<app-add-to-playlist-dialog (stateChange)="onDialogClose()" [state]="state" [name]="title" [rating]="rating" [imagePath]="poster" [contentID]="Number(id)" [contentType]="mediaType"/>
 <div class="m-r-c-container" [ngStyle]="{'background-image': 'url('+ imageUrl +')'}">
   <div class="text-wrapper">
     <h2>{{title}}</h2>
@@ -7,7 +8,7 @@
     </p>
     <div class="button-wrapper">
       <app-transparent-button (click)="navigate()"></app-transparent-button>
-      <app-transparent-button routerLink="/playlist" text="Add Playlist" iconImg="assets/Icons/playlist.svg"></app-transparent-button>
+      <app-transparent-button (click)="onDialogOpen()" text="Add To Playlist" iconImg="assets/Icons/playlist.svg"></app-transparent-button>
     </div>
   </div>
 </div>

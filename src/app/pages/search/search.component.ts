@@ -52,20 +52,24 @@ export class SearchComponent implements OnDestroy,OnInit,AfterViewInit  {
   ngOnDestroy() {
     this.searchedResult = [];
   }
-
+  timeout = setTimeout(()=>{})
   quickSearch(value:string){
+    clearTimeout(this.timeout)
     if(value.length === 0 || /^\s*$/.test(value)){
       this.displaySearched = false
       return
     }
     this.displaySearched = true
     this.loading = true
-    this.search.getSearches(value)
-      .subscribe(data =>{
-        this.loading = false
-        this.searchedResult = data.results;
-        this.totalPage = data.total_pages;
-      })
+    this.timeout = setTimeout(()=>{
+      this.search.getSearches(value)
+        .subscribe(data =>{
+          this.loading = false
+          this.searchedResult = data.results;
+          this.totalPage = data.total_pages;
+        })
+    },500)
+
   }
   changePage(value:string,page:number){
       this.page = page;

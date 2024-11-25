@@ -1,30 +1,38 @@
 <app-confirm-dialog [state]="deleteState" (cancel)="toggleDeleteState()" >Remove</app-confirm-dialog>
 <div class="container">
   <header class="header">
-    <div class="gradient-overlay"></div> <div class="rectangle"></div> <div class="rectangle"></div> <div class="rectangle"></div> <div class="rectangle"></div> <div class="rectangle"></div>
+    <div class="gradient-overlay" [class.overlay-loading]="isInfoLoading"></div> <div class="rectangle"></div> <div class="rectangle"></div> <div class="rectangle"></div> <div class="rectangle"></div> <div class="rectangle"></div>
     <div class="background-cover"></div>
     <div class="description-container">
-      <h1 class="title">Summer Watch</h1>
-      <p class="description">Its ALl the shows of the summer 2024. It shows all the things about the things all over the place and the thing of the heven ... </p>
+      <h1 class="title">{{title}}</h1>
+      <p class="description">{{description}}</p>
+      @if(isInfoLoading){
+        <div class="loading_title loading_card" [style.width.%]="100" [style.max-width.px]="300" [style.height.px]="40"></div>
+        <div class="loading_des loading_card" [style.width.%]="100" [style.max-width.px]="500" [style.height.px]="20"></div>
+        <div class="loading_des loading_card" [style.width.%]="100" [style.max-width.px]="100" [style.height.px]="20"></div>
+      }
     </div>
     <div class="button-container">
       <div class="button-left-container">
-        <div class="personal-info-container">
-          <p style="color: white">abiyaddis</p>
-          <div class="dot"></div>
-          <p>{{data.length + ' Movie / Tv shows' }}</p>
-        </div>
-        <img src="assets/Icons/edit.svg" alt="" class="icon" >
-        <img [src]="isInSelectMode ? './assets/Icons/tick-circle-active.svg' : './assets/Icons/tick-circle.svg'" alt="" class="icon" (click)="toggleSelectMode()">
-        <img *ngIf="isInSelectMode" src="assets/Icons/delete.svg" alt="" class="icon" (click)="toggleDeleteState()">
+        @if(!  isInfoLoading){
+          <div class="personal-info-container">
+            <p style="color: white">{{ username }}</p>
+            <div class="dot"></div>
+            <p>{{data.length + ' Movie / Tv shows' }}</p>
+          </div>
+        }
+        @if(isOwner){
+          <img src="assets/Icons/edit.svg" alt="" class="icon" >
+          <img [src]="isInSelectMode ? './assets/Icons/tick-circle-active.svg' : './assets/Icons/tick-circle.svg'" alt="" class="icon" (click)="toggleSelectMode()">
+          <img *ngIf="isInSelectMode" src="assets/Icons/delete.svg" alt="" class="icon" (click)="toggleDeleteState()">
+        }
       </div>
       <div class="button-right-container">
-        <button class="button">Subscribe</button>
-        <select class="drop-down">
-          <option>Date added</option>
-          <option>asdas</option>
-        </select>
-        <input class="search" type="text" placeholder="search">
+        @if(!isOwner && !isInfoLoading){
+          <button class="button">Subscribe</button>
+        }
+        <div *ngIf="isInfoLoading" class="loading_des loading_card" [style.width.px]="200"  [style.height.px]="40"></div>
+        <input *ngIf="!isInfoLoading" class="search" type="text" placeholder="Search">
 
       </div>
     </div>
@@ -40,30 +48,48 @@
       </thead>
       <br>
   <tbody>
-     @for(d of data;track d.id;let i = $index){
-       <tr (contextmenu)="rightClick($event,i)" (click)="select(i)">
-         <td class="hug">
-          @if(!isInSelectMode){
-            <p class="number">{{i + 1}}</p>
-            <img class="play" src="assets/Icons/play2.svg" alt="">
-          } @else {
-            <div [class.selected-active]="selectedIndex.has(i)" class="circle"><div></div></div>
-          }
-         </td>
-         <td class="title-container" [class.selected]="isInSelectMode">
-           <img  class="img" [src]="'https://image.tmdb.org/t/p/w92' + d.image_path" alt="">
-           <div class="title-wrapper">
-             <p class="table-title" >{{d.name}}</p>
-             <p>{{d.content_type}}</p>
+     @if(!isContentLoading){
+       @for(d of data;track d.id;let i = $index){
+         <tr (contextmenu)="rightClick($event,i)" (click)="select(i)">
+           <td class="hug">
+             @if(!isInSelectMode){
+               <p class="number">{{i + 1}}</p>
+               <img class="play" src="assets/Icons/play2.svg" alt="">
+             } @else {
+               <div [class.selected-active]="selectedIndex.has(i)" class="circle"><div></div></div>
+             }
+           </td>
+           <td class="title-container" [class.selected]="isInSelectMode">
+             <img  class="img" [src]="'https://image.tmdb.org/t/p/w92' + d.image_path" alt="">
+             <div class="title-wrapper">
+               <p class="table-title" >{{d.name}}</p>
+               <p>{{d.content_type}}</p>
+             </div>
+           </td>
+           <td [class.selected]="isInSelectMode">{{i + 0.42}}</td>
+           <td [class.selected]="isInSelectMode">{{ DateConverter.dateConverter1(d.created_at)}}</td>
+         </tr>
+       }
+     } @else {
+       <tr  *ngFor="let card of Array(24).fill(0); let i = index" >
+         <td><div class="loading_num loading_card"></div></td>
+         <td>
+           <div class="loading_info">
+             <div class="loading_image loading_card"></div>
+             <div class="loading_side">
+               <div class="loading_title loading_card"></div>
+               <div class="loading_des loading_card"></div>
+             </div>
            </div>
          </td>
-         <td [class.selected]="isInSelectMode">{{i + 0.42}}</td>
-         <td [class.selected]="isInSelectMode">{{ DateConverter.dateConverter1(d.created_at)}}</td>
+         <td [style.width.%]="22"><div class="loading_rating loading_card"></div></td>
+         <td  [style.width.%]="22"><div class="loading_date loading_card"></div></td>
        </tr>
      }
 
   </tbody>
     </table>
+
   </div>
 
 </div>

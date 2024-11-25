@@ -10,17 +10,24 @@ export class PlaylistService {
   postPlaylist(credential:any){
     return this.http.post('http://localhost:3000/api/v1/playlist',credential)
   }
-  getPlaylist(id:number){
+  getUserPlaylist(id:number){
     const params = new HttpParams().set('userID', id);
     return this.http.get('http://localhost:3000/api/v1/playlist', {params})
+  }
+  getUserCreatedPlaylist(id:number){
+    console.log(id)
+    return this.http.get(`http://localhost:3000/api/v1/user/${id}/playlist`)
+  }
+  getPlaylist(id:number){
+    return this.http.get(`http://localhost:3000/api/v1/playlist/${id}`)
   }
   deletePlaylist(id:number){
     return this.http.delete(`http://localhost:3000/api/v1/playlist/${id}`)
   }
   getPlaylistContent(id:number){
-    return this.http.get(`http://localhost:3000/api/v1/playlist/${id}`)
+    return this.http.get(`http://localhost:3000/api/v1/playlist/${id}/content`)
   }
   postPlaylistContent(id:number,credential:any){
-    return this.http.get(`http://localhost:3000/api/v1/playlist/${id}`,credential)
+    return this.http.post(`http://localhost:3000/api/v1/playlist/${id}/content`,credential)
   }
 }

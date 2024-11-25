@@ -15,7 +15,7 @@
   </div>
   <div class="card-container">
   @for(item of data;track item.title;let index = $index){
-    <app-playlist-card [routerLink]="isInSelectMode ? '/playlist' : '/playlist/' +  item.id"  [src]="item.src ? item.src : 'assets/Images/default-cover.png'" [id]="item.id" (onSelected)="toggleSelected(index,$event )" [isSelected]="item.isSelected" [title]=item.title [isInSelectMode]="isInSelectMode" [description]=item.description />
+      <app-playlist-card [routerLink]="isInSelectMode ? '/playlist' : '/playlist/' +  item.id"  [src]="item.src ? item.src : 'assets/Images/default-cover.png'" [id]="item.id" (onSelected)="toggleSelected(index,$event )" [isSelected]="item.isSelected" [title]=item.title [isInSelectMode]="isInSelectMode" [description]=item.description />
   }
 
     @if (isLoading){

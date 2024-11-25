@@ -8,14 +8,16 @@ import {Router} from "@angular/router";
 })
 export class MainRecCardsComponent {
   @Input() id = ''
-  @Input() imageUrl:string= 'https://wallpapercave.com/wp/wp12067729.jpg'
+  @Input() imageUrl= ''
   @Input() mediaType = ''
-  @Input() title = 'Invincible'
+  @Input() title = ''
   @Input() date = ''
   @Input() length = ''
   @Input() genre:string[] = []
-  @Input() description = 'Mark Grayson is a normal teenager except for the fact that his father is the most powerful superhero on the planet. Shortly after his seventeenth birthday, Mark begins to develop powers of his own and enters into his father’s tutelage.\n'
-
+  @Input() description = ''
+  @Input() poster = ''
+  @Input() rating = 0
+  state = false
   constructor(private router:Router) {
   }
   navigate(){
@@ -25,4 +27,12 @@ export class MainRecCardsComponent {
       this.router.navigate(['/view', 'movie',this.id])
 
   }
+  onDialogOpen(){
+    this.state = true
+  }
+  onDialogClose(){
+    this.state = false
+  }
+
+  protected readonly Number = Number;
 }

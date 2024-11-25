@@ -7,11 +7,12 @@ import { Observable } from 'rxjs';
 })
 export class GetMultiSearchService {
   private url = 'https://api.themoviedb.org/3/search/multi';
+  private idUrl = ''
   private headers = new HttpHeaders({
     accept: 'application/json',
     Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhYjA2MzgwMGI2ZmE3ZWEwMTA5NWU2ZTVjNzQ2YTY5ZSIsInN1YiI6IjY2MzUyMzhlMmEwOWJjMDEyOTU5MmNhNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.TS8KC1awG48WhZXHSejr7tPLPZZO5deB5AY5yMCajNI'
   });
- 
+
   constructor(private http: HttpClient) { }
 
   getSearches(query: string, page: number = 1): Observable<any> {
@@ -22,5 +23,9 @@ export class GetMultiSearchService {
       .set('page', page.toString());
 
     return this.http.get(this.url, { headers: this.headers, params });
+  }
+  getById(){
+    return this.http.get("https://api.themoviedb.org/3/find/194764?external_source=imdb_id",{ headers: this.headers});
+
   }
 }
