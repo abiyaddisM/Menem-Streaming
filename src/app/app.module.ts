@@ -44,9 +44,9 @@ import {ConfirmDialogComponent} from "./components/confirm-dialog/confirm-dialog
 import {CreatePlaylistDialogComponent} from "./components/create-playlist-dialog/create-playlist-dialog.component";
 import {PlaylistViewPageComponent} from "./pages/playlist-view-page/playlist-view-page.component";
 import {AddToPlaylistDialogComponent} from "./components/add-to-playlist-dialog/add-to-playlist-dialog.component";
-
-
+import {DropdownModule} from "primeng/dropdown";
 const app = initializeApp(environment.firebase);
+
 export const analytics = getAnalytics(app);
 @NgModule({
   declarations: [
@@ -90,7 +90,7 @@ export const analytics = getAnalytics(app);
     AppRoutingModule,
     FormsModule,
     NgIconsModule.withIcons({saxAddOutline}),
-    ReactiveFormsModule],
+    ReactiveFormsModule, DropdownModule],
   exports: [
     TransparentButtonComponent,
     MovieViewPageComponent

@@ -30,9 +30,10 @@ export class PlaylistPageComponent implements OnInit{
               data.saveid = Number(data.saveid)
               data.userid = Number(data.userid)
               data.id = Number(data.id)
-              this.isLoading = false
               data['isSelected'] = false;
             })
+            this.isLoading = false
+
             console.log(this.data)
 
           },error => this.isLoading = false
@@ -56,9 +57,17 @@ export class PlaylistPageComponent implements OnInit{
     deletePlaylist(){
       for (let i = 0; i < this.data.length; i++) {
         if(this.data[i].isSelected){
-          this.playlistService.deletePlaylist(this.data[i].id).subscribe(error=>{
-            console.log(error)
-          })
+          console.log(this.data[i])
+          const userID = this.authService.getUser()
+          const ownerID = this.data[i].userid;
+          if(userID === ownerID){
+            this.playlistService.deletePlaylist(this.data[i].id).subscribe(error=>{
+              console.log(error)
+            })
+          }else{
+            const saveID = this.data[i].saveid
+            this.playlistService.deletePlaylistSave(Number(saveID)).subscribe()
+          }
           this.data.splice(i, 1);
           i--;
         }

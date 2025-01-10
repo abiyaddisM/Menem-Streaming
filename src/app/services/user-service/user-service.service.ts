@@ -8,18 +8,20 @@ import {Observable} from "rxjs";
   providedIn: 'root'
 })
 export class UserService {
+ static url = "https://socket.bizawit.com"
+
   private static httpClient: HttpClient;
   constructor(private http: HttpClient,private router:Router) {
     UserService.httpClient = http
   }
   signUp(credentials:any){
-    return this.http.post('http://localhost:3000/api/v1/user',credentials)
+    return this.http.post(`${UserService.url}/api/v1/user`,credentials)
 
   }
   static uniqueUsername(username:string):Observable<any>{
-    return UserService.httpClient.post('http://localhost:3000/api/v1/unique/username',{username})
+    return UserService.httpClient.post(`${UserService.url}/api/v1/unique/username`,{username})
   }
   static uniqueEmail(email:string):Observable<any>{
-    return UserService.httpClient.post('http://localhost:3000/api/v1/unique/email',{email})
+    return UserService.httpClient.post(`${UserService.url}/api/v1/unique/email`,{email})
   }
 }

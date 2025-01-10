@@ -10,9 +10,29 @@
 
       }
       <app-transparent-button text="Create Playlist" iconImg="./assets/Icons/add.svg" iconSize="15px" (click)="toggleCreatePlaylistState()"/>
-      <!--      <app-transparent-button *ngIf="isInSelectMode" text="Edit" iconImg="./assets/Icons/edit.svg" iconSize="16px"/>-->
+
+    </div>
+    <div class="smaller-button-container" *ngIf="!isLoading">
+      <div class="icon-container" *ngIf="isInSelectMode" (click)="toggleDeleteState()">
+        <img  src="assets/Icons/delete.svg" alt="" class="icon" >
+      </div>
+      <div class="icon-container" (click)="toggleSelectMode()">
+        <img [src]="isInSelectMode ? './assets/Icons/tick-circle-active.svg' : './assets/Icons/tick-circle.svg'" alt="" class="icon" >
+      </div>
+      <div class="icon-container" (click)="toggleCreatePlaylistState()">
+        <img src="assets/Icons/add.svg" alt="" class="icon" >
+      </div>
+
+
     </div>
   </div>
+  @if (!isLoading && data.length < 1){
+    <div class="empty-container">
+      <img src="assets/Icons/empty.svg" alt="">
+      <p>No Result Was Found</p>
+      <p>Try creating or subscribing to a playlist</p>
+    </div>
+  }
   <div class="card-container">
   @for(item of data;track item.title;let index = $index){
       <app-playlist-card [routerLink]="isInSelectMode ? '/playlist' : '/playlist/' +  item.id"  [src]="item.src ? item.src : 'assets/Images/default-cover.png'" [id]="item.id" (onSelected)="toggleSelected(index,$event )" [isSelected]="item.isSelected" [title]=item.title [isInSelectMode]="isInSelectMode" [description]=item.description />

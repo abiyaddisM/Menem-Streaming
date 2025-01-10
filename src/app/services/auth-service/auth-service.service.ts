@@ -20,7 +20,7 @@ export class AuthService {
   }
 
   login(credentials:any) {
-      return this.http.post('http://localhost:3000/api/v1/auth', credentials)
+      return this.http.post('https://socket.bizawit.com/api/v1/auth', credentials)
       .pipe(map((response:any) =>{
         console.log("Done")
         console.log(response)

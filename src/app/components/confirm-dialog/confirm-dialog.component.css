@@ -9,6 +9,7 @@
   justify-content: center;
   flex-direction: column;
   z-index: 10;
+  padding:20px
 }
 .dialog-container{
   width: 100%;

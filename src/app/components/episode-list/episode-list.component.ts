@@ -3,6 +3,7 @@ import {format} from "date-fns";
 import {DomSanitizer, SafeResourceUrl} from "@angular/platform-browser";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Subscription} from "rxjs";
+import {MediaProgressService} from "../../services/media-progress-service/media-progress.service";
 
 @Component({
   selector: 'app-episode-list',
@@ -30,7 +31,7 @@ export class EpisodeListComponent implements AfterViewInit,OnInit,OnDestroy{
   touchedEpisode:any = {e1s1: ''}
   // @ts-ignore
   private routeSub: Subscription;
-  constructor(private router:Router,private sanitizer:DomSanitizer,private route: ActivatedRoute) {
+  constructor(private router:Router,private sanitizer:DomSanitizer,private route: ActivatedRoute, private  mediaProgressService: MediaProgressService) {
   }
   getSelected(){
     return parseInt(this.selectedValue)
@@ -39,15 +40,21 @@ export class EpisodeListComponent implements AfterViewInit,OnInit,OnDestroy{
     return format(new Date(dateString), 'dd MMM yyyy');
   }
   changeEpisode(episode:number){
+    const data = this.mediaProgressService.getData(this.id).show_progress[`s${this.season}e${this.episode}`].progress;
+    console.log("media",);
+    if(data){
+      const percent = Math.round((data.watched / data.duration ) * 100);
+        this.changeTouchedEpisode(percent);
+    }
     this.season = this.getSelected().toString();
     this.episode = episode.toString();
     this.router.navigate(['/view/tv', this.id],{queryParams: {season: this.season ,episode:this.episode}});
     this.changeLastSeen();
     this.setVideoUrl();
-    this.changeTouchedEpisode();
   }
+
   setVideoUrl(){
-    this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(`https://vidsrc.net/embed/tv/${this.id}/${this.season}/${this.episode}`);
+    this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(`https://vidlink.pro/tv/${this.id}/${this.season}/${this.episode}`);
   }
   ngOnInit(){
     this.setData()
@@ -75,11 +82,9 @@ export class EpisodeListComponent implements AfterViewInit,OnInit,OnDestroy{
     const lastSeen = {episode:this.episode,season:this.season};
     localStorage.setItem("last_seen_" + this.id,JSON.stringify(lastSeen));
     }
-    changeTouchedEpisode(){
+    changeTouchedEpisode(percent:number){
     const val = `e${this.episode}s${this.season}`
-    if(!this.touchedEpisode.hasOwnProperty(`e${this.episode}s${this.season}`))
-      this.touchedEpisode[val] = ''
-
+      this.touchedEpisode[val] = percent;
       localStorage.setItem("touched_Episode" + this.id,JSON.stringify(this.touchedEpisode));
 
     }
@@ -92,6 +97,27 @@ export class EpisodeListComponent implements AfterViewInit,OnInit,OnDestroy{
     this.setVideoUrl()
   }
   ngOnDestroy() {
+    const data = this.mediaProgressService.getData(this.id).show_progress[`s${this.season}e${this.episode}`].progress;
+    if(data){
+      const percent = Math.round((data.watched / data.duration ) * 100);
+        this.changeTouchedEpisode(percent);
+    }
+  }
+  checkIfWatched(episode:number,season:number){
+    const name = 'e'+(episode + 1)+'s'+season;
+    if(this.touchedEpisode.hasOwnProperty(name)){
+      const percent = this.touchedEpisode[name];
+      if(percent >= 90)
+        return true
+    }
+    return false;
+  }
+  getWatchPercentage(episode:number,season:number){
+
+    const name = 'e'+(episode + 1)+'s'+season;
+    if(this.touchedEpisode.hasOwnProperty(name))
+      return this.touchedEpisode[name];
+    return 0;
   }
 
   protected readonly Array = Array;
