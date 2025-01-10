@@ -5,29 +5,39 @@ import {HttpClient, HttpParams} from "@angular/common/http";
   providedIn: 'root'
 })
 export class PlaylistService {
+  url = "https://socket.bizawit.com"
 
   constructor(private http: HttpClient) { }
   postPlaylist(credential:any){
-    return this.http.post('http://localhost:3000/api/v1/playlist',credential)
+    return this.http.post(`${this.url}/api/v1/playlist`,credential)
   }
   getUserPlaylist(id:number){
     const params = new HttpParams().set('userID', id);
-    return this.http.get('http://localhost:3000/api/v1/playlist', {params})
+    return this.http.get(`${this.url}/api/v1/playlist`, {params})
   }
   getUserCreatedPlaylist(id:number){
     console.log(id)
-    return this.http.get(`http://localhost:3000/api/v1/user/${id}/playlist`)
+    return this.http.get(`${this.url}/api/v1/user/${id}/playlist`)
   }
-  getPlaylist(id:number){
-    return this.http.get(`http://localhost:3000/api/v1/playlist/${id}`)
+  getPlaylist(id:number,params:any){
+    return this.http.get(`${this.url}/api/v1/playlist/${id}`,{params})
   }
   deletePlaylist(id:number){
-    return this.http.delete(`http://localhost:3000/api/v1/playlist/${id}`)
+    return this.http.delete(`${this.url}/api/v1/playlist/${id}`)
+  }
+  deletePlaylistSave(id:number){
+    return this.http.delete(`${this.url}/api/v1/playlist-save/${id}`)
   }
   getPlaylistContent(id:number){
-    return this.http.get(`http://localhost:3000/api/v1/playlist/${id}/content`)
+    return this.http.get(`${this.url}/api/v1/playlist/${id}/content`)
   }
   postPlaylistContent(id:number,credential:any){
-    return this.http.post(`http://localhost:3000/api/v1/playlist/${id}/content`,credential)
+    return this.http.post(`${this.url}/api/v1/playlist/${id}/content`,credential)
+  }
+  postPlaylistSave(credential:any){
+    return this.http.post(`${this.url}/api/v1/playlist-save`,credential)
+  }
+  deletePlaylistContent(id:number){
+    return this.http.delete(`${this.url}/api/v1/playlist/content/${id}`)
   }
 }

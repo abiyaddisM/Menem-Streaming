@@ -67,9 +67,88 @@ app-confirm-dialog{
   background-position-x: 180%;
   animation: 1.5s shine linear infinite;
 }
+.icon-container{
+  padding: 10px;
+  border-radius: 50%;
+  display: flex;
+  background: rgba(144, 144, 144, 0.16);
+  cursor: pointer   ;
+  transition: 0.3s;
 
+}
+.icon-container:hover {
+  background: rgba(144, 144, 144, 0.32);
+  transition: 0.3s;
+
+}
+.icon{
+  height: 20px;
+}
+.smaller-button-container{
+  display: none;
+}
 @keyframes shine {
   to {
     background-position-x: -20%;
+  }
+}
+.empty-container{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  color: #e8e8e8;
+    z-index: -1;
+  p{
+    font-size: 20px;
+
+    &:nth-of-type(2){
+      font-size: 16px;
+      color: #b9b9b9;
+
+    }
+  }
+  img{
+    width: 180px;
+  }
+
+}
+@media (max-width: 700px) {
+  .smaller-button-container{
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+  }
+  .button-container{
+    display:none;
+  }
+  .header-container{
+    h1{
+      /*display: none;*/
+
+    }
+    &:nth-of-type(1){
+    }
+  }
+  .empty-container{
+    p{
+      font-size: 18px;
+
+      &:nth-of-type(2){
+        font-size: 14px;
+
+      }
+    }
+    img{
+      width: 150px;
+    }
+
   }
 }
