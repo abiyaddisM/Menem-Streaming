@@ -1,4 +1,4 @@
-<app-confirm-dialog [state]="deleteState" (cancel)="toggleDeleteState()" >Remove</app-confirm-dialog>
+<app-confirm-dialog [state]="deleteState" (confirm)="deleteContent()"  (cancel)="toggleDeleteState()" >Remove</app-confirm-dialog>
 <div class="container">
   <header class="header">
     <div class="gradient-overlay" [class.overlay-loading]="isInfoLoading"></div> <div class="rectangle"></div> <div class="rectangle"></div> <div class="rectangle"></div> <div class="rectangle"></div> <div class="rectangle"></div>
@@ -22,34 +22,44 @@
           </div>
         }
         @if(isOwner){
-          <img src="assets/Icons/edit.svg" alt="" class="icon" >
-          <img [src]="isInSelectMode ? './assets/Icons/tick-circle-active.svg' : './assets/Icons/tick-circle.svg'" alt="" class="icon" (click)="toggleSelectMode()">
-          <img *ngIf="isInSelectMode" src="assets/Icons/delete.svg" alt="" class="icon" (click)="toggleDeleteState()">
+          <div class="icon-container">
+            <img src="assets/Icons/edit.svg" alt="" class="icon" >
+          </div>
+
+          <div class="icon-container" (click)="toggleSelectMode()">
+            <img [src]="isInSelectMode ? './assets/Icons/tick-circle-active.svg' : './assets/Icons/tick-circle.svg'" alt="" class="icon" >
+          </div>
+
+          <div class="icon-container" *ngIf="isInSelectMode" (click)="toggleDeleteState()">
+            <img  src="assets/Icons/delete.svg" alt="" class="icon" >
+          </div>
         }
       </div>
       <div class="button-right-container">
         @if(!isOwner && !isInfoLoading){
-          <button class="button">Subscribe</button>
+          <button class="button" (click)="onSubscribe()">{{ !saveID ? "Subscribe" : "Unsubscribe" }}</button>
         }
         <div *ngIf="isInfoLoading" class="loading_des loading_card" [style.width.px]="200"  [style.height.px]="40"></div>
-        <input *ngIf="!isInfoLoading" class="search" type="text" placeholder="Search">
+        <input *ngIf="!isInfoLoading" class="search" type="text" placeholder="Search" [(ngModel)]="search">
 
       </div>
     </div>
   </header>
+
   <div class="content-container">
     <table>
       <thead><tr>
         <th class="hug">#</th>
-        <th>Title</th>
-        <th>Rating</th>
-        <th>Date added</th>
+        <th><button (click)="changeSort(1)" class="arrow-container">Title <img *ngIf="sortedBy === 1" class="arrow" [class.arrow-reverse]="isReversed" src="assets/Icons/arrow-down.svg" alt=""></button></th>
+        <th class="invisible"><button (click)="changeSort(2)" class="arrow-container">Rating <img *ngIf="sortedBy === 2" class="arrow" [class.arrow-reverse]="isReversed" src="assets/Icons/arrow-down.svg" alt=""></button></th>
+        <th><button (click)="changeSort(3)" class="arrow-container">Date added <img *ngIf="sortedBy === 3" class="arrow" [class.arrow-reverse]="isReversed" src="assets/Icons/arrow-down.svg" alt=""></button></th>
       </tr>
       </thead>
       <br>
   <tbody>
+
      @if(!isContentLoading){
-       @for(d of data;track d.id;let i = $index){
+       @for(d of getList();track d.id;let i = $index){
          <tr (contextmenu)="rightClick($event,i)" (click)="select(i)">
            <td class="hug">
              @if(!isInSelectMode){
@@ -66,14 +76,14 @@
                <p>{{d.content_type}}</p>
              </div>
            </td>
-           <td [class.selected]="isInSelectMode">{{i + 0.42}}</td>
+           <td class="invisible" [class.selected]="isInSelectMode">{{d.rating}}</td>
            <td [class.selected]="isInSelectMode">{{ DateConverter.dateConverter1(d.created_at)}}</td>
          </tr>
        }
      } @else {
        <tr  *ngFor="let card of Array(24).fill(0); let i = index" >
          <td><div class="loading_num loading_card"></div></td>
-         <td>
+         <td >
            <div class="loading_info">
              <div class="loading_image loading_card"></div>
              <div class="loading_side">
@@ -82,13 +92,20 @@
              </div>
            </div>
          </td>
-         <td [style.width.%]="22"><div class="loading_rating loading_card"></div></td>
+         <td class="invisible" [style.width.%]="22"><div class="loading_rating loading_card"></div></td>
          <td  [style.width.%]="22"><div class="loading_date loading_card"></div></td>
        </tr>
      }
 
   </tbody>
     </table>
+    @if (!isContentLoading && data.length < 1){
+      <div class="empty-container">
+        <img src="assets/Icons/empty.svg" alt="">
+        <p>No Result Was Found</p>
+        <p>Try adding or contact the owner of the playlist</p>
+      </div>
+    }
 
   </div>
 
