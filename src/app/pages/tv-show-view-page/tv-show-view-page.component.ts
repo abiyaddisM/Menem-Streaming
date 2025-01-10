@@ -25,6 +25,9 @@ export class TvShowViewPageComponent implements OnInit{
   numberOfSeasons = 0
   showInfo:showFormat[] = []
   selectedValue: string = '1';
+  title = ''
+  rating = 0
+  poster = ''
   // @ts-ignore
   private routeSub: Subscription;
   constructor(private route: ActivatedRoute,
@@ -66,6 +69,7 @@ export class TvShowViewPageComponent implements OnInit{
       this.mediaType = "tv"
       this.selectedValue = this.season
       this.season === '0' && this.router.navigate(['/view','tv',this.id,'1','1'])
+
       this.tvDetail()
     });
   }
@@ -85,6 +89,9 @@ export class TvShowViewPageComponent implements OnInit{
       for (let i = 0; i < this.numberOfSeasons; i++) {
         this.tvSeasonDetail((i + 1).toString(),i);
       }
+        this.rating = Number(res.vote_average);
+        this.title = this.checkTitle(res);
+        this.poster = res.poster_path;
     })
   }
   tvSeasonDetail(season:string,i:number){
@@ -93,8 +100,27 @@ export class TvShowViewPageComponent implements OnInit{
       // console.log(res)
     })
   }
+  checkTitle(data:any){
+    if (data.hasOwnProperty('name'))
+      return data.name;
+    else if(data.hasOwnProperty('title'))
+      return data.title;
+    else
+      return data.original_name;
+  }
+
   protected readonly Array = Array;
   protected readonly parseInt = parseInt;
+  state = false
+
+  onDialogOpen(){
+    this.state = true
+  }
+  onDialogClose(){
+    this.state = false
+  }
+
+  protected readonly Number = Number;
 }
 interface showFormat{
   season:string,
