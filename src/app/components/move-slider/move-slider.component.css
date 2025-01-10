@@ -7,7 +7,7 @@ section{
   position: relative;
   width: 100%;
   margin: 0 auto;
-  height: clamp(440px,50vw,700px);
+  height: clamp(400px,30vw,600px);
   overflow: hidden;
   scrollbar-width: none;
   -ms-overflow-style: none;

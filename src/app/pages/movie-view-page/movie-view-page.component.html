@@ -1,17 +1,18 @@
+<app-add-to-playlist-dialog (stateChange)="onDialogClose()" [state]="state" [name]="title" [rating]="rating" [imagePath]="poster" [contentID]="Number(id)" [contentType]="mediaType"/>
+
 <div class="v-p-container" [ngStyle]="{'background-image':'url(https://image.tmdb.org/t/p/original' + backdropImg +')'}">
-  <div class="gradient-cover"></div>
-  <div class="v-p-wrapper" [ngStyle]="{'height': elementHeight + 'px'}">
-    <div appPreventMalvertisement>
-      <iframe [src]="videoUrl" style="border:none;" allow="autoplay; fullscreen" allowfullscreen #elementRef  ></iframe>
-    </div>
-    <div class="v-p-seasons-container" >
-      <div class="drop-down-wrapper">
-        <select  class="drop-down-selector" [(ngModel)]="selectedValue">
-          <option>Movie  </option>
-        </select>
-        <img src="assets/Icons/arrow.svg" class="custom-arrow">
-      </div>
+    <div class="gradient-cover"></div>
+
+    <div class="v-p-wrapper" >
+        <div appPreventMalvertisement class="frame-container">
+          <iframe [src]="videoUrl" style="border:none;" allow=" fullscreen muted" allowfullscreen #elementRef ></iframe>
+        </div>
+
+       <div class="button-container">
+         <app-transparent-button (click)="onDialogOpen()" text="Add Playlist" iconImg="assets/Icons/playlist.svg"></app-transparent-button>
+         <app-transparent-button  text="Information" iconImg="assets/Icons/info.svg"></app-transparent-button>
+       </div>
 
     </div>
-  </div>
+
 </div>
