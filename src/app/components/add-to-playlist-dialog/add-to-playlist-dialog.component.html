@@ -1,0 +1,33 @@
+@if(state){
+  <div class="container" @fadeInOut (click)="onClose($event)">
+
+    <div class="dialog-container" >
+    @if(isSending){
+      <div class="loader_container" >
+        <div class="loader"></div>
+      </div>
+    }
+
+
+      <div class="back" (click)="onClose($event)">
+        <img src="assets/Icons/arrow-left.svg" alt="">
+        Back
+      </div>
+      <div class="content-wrapper">
+   @if(!isLoading){
+     @for(i of data;track i.id){
+       <app-playlist-card (click)="addContent(i.id)"  [title]="i.title"></app-playlist-card>
+     }
+   } @else{
+          <div  *ngFor="let card of Array(4).fill(0); let i = index" >
+            <div class="card_shape">
+              <div class="loading_image loading_card"></div>
+              <div class="loading_title loading_card" ></div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+
+}

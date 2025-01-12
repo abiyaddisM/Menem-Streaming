@@ -1,0 +1,105 @@
+.container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 100;
+}
+.dialog-container{
+  background: rgba(25, 26, 31, 0.45);
+  backdrop-filter: blur(18px);
+  width: 100%;
+  height: 100%;
+  max-width: 450px;
+  max-height: 350px;
+  border-radius: 20px;
+  padding: 10px;
+  overflow: hidden;
+  margin: 20px;
+}
+.content-wrapper{
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(160px, 1fr));
+  height: 100%;
+  overflow: auto;
+  padding-bottom: 50px;
+
+}
+.back{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: white;
+  padding: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  width: fit-content;
+}
+.card_shape{
+  width: 100%;
+  padding: 20px;
+  border-radius: 10px;
+  /*background-color: rgba(197, 197, 197, 0.05);*/
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.loading_image{
+  aspect-ratio: 1/1;
+
+}
+.loading_title{
+  width: 50%;
+  height: 30px;
+}
+
+.loading_card{
+  background-color: #727272;
+  background: linear-gradient(
+    110deg,
+    rgba(255, 255, 255, 0) 40%,
+    rgba(38, 47, 55, 0.47) 50%,
+    rgba(255, 255, 255, 0) 60%
+  ) #1b1d21;
+  border-radius: 12px;
+  background-size: 200% 100%;
+  background-position-x: 180%;
+  animation: 1.5s shine linear infinite;
+}
+
+.loader_container{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(4px);
+  z-index: 100;
+}
+.loader {
+  height: 4px;
+  width: 40%;
+  left: 0;
+  top: 0;
+  border-radius: 10px ;
+  --c:no-repeat linear-gradient(#272830 0 0);
+  background: var(--c),var(--c), #d6d6d6;
+  background-size: 60% 100%;
+  animation: l16 3s infinite;
+}
+@keyframes l16 {
+  0%   {background-position:-150% 0,-150% 0}
+  66%  {background-position: 250% 0,-150% 0}
+  100% {background-position: 250% 0, 250% 0}
+}
+
+@keyframes shine {
+  to {
+    background-position-x: -20%;
+  }
+}
