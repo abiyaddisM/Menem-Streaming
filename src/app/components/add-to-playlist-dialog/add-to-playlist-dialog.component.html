@@ -18,6 +18,12 @@
      @for(i of data;track i.id){
        <app-playlist-card (click)="addContent(i.id)"  [title]="i.title"></app-playlist-card>
      }
+     @if(data.length < 1){
+       <div class="empty-container">
+         <img src="assets/Icons/empty.svg" alt="">
+         <p>No Result Was Found</p>
+         <p>Try creating a playlist to add too</p>
+       </div>}
    } @else{
           <div  *ngFor="let card of Array(4).fill(0); let i = index" >
             <div class="card_shape">
@@ -26,6 +32,7 @@
             </div>
           </div>
         }
+
       </div>
     </div>
   </div>
