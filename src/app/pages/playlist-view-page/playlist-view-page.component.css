@@ -316,7 +316,7 @@ tbody td:last-child{
 .arrow{
   display: flex;
   position: absolute;
-  right: -20px;
+  right: -25px;
   top: 0;
   width: 18px;
   transition: 0.2s;
