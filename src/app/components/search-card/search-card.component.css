@@ -17,7 +17,7 @@
 .image-container{
   width: 50px;
   aspect-ratio: 2/3;
-  background:black;
+  background: rgba(0, 0, 0, 0.46);
   border-radius: 8px;
   display: flex;
 
