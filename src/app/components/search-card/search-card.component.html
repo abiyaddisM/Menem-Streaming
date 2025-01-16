@@ -1,5 +1,8 @@
 <div class="s-c-container" (click)="navigate()">
-  <img [src]="'https://image.tmdb.org/t/p/w92' + imageUrl">
+  <div class="image-container">
+    <img [src]="'https://image.tmdb.org/t/p/w92' + imageUrl">
+
+  </div>
   <div class="s-c-wrapper">
     <h4>{{title}}</h4>
     <app-mini-info [rating]="rating" [miniInfo]="genre" [size]="13" [subtract]="1"></app-mini-info>
