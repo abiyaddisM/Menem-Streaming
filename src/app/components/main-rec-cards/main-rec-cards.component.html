@@ -1,6 +1,7 @@
 <app-add-to-playlist-dialog (stateChange)="onDialogClose()" [state]="state" [name]="title" [rating]="rating" [imagePath]="poster" [contentID]="Number(id)" [contentType]="mediaType"/>
 <div class="m-r-c-container" [ngStyle]="{'background-image': 'url('+ imageUrl +')'}">
   <div class="text-wrapper">
+    <div class="choice">{{ by }} Choice</div>
     <h2>{{title}}</h2>
     <app-mini-info [subtract]="2" year="{{date}}" time="{{length}}" [miniInfo]="genre"></app-mini-info>
     <p>

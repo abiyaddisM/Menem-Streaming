@@ -2,8 +2,8 @@
   <div class="slider-wrapper">
     <div class="gradient-cover"></div>
     <div class="slider" (scroll)="onScroll($event)" #sliderContainer>
-      <app-main-rec-cards class="main-rec-card" [id]="s.id" [poster]="s.poster" [rating]="s.rating" [date]="s.date" [genre]="s.genre" [length]="s.length" [mediaType]="s.mediaType" [imageUrl]="s.img" [title]="s.title" [description]="s.description" *ngFor="let s of slides"/>
-      <app-main-rec-cards class="main-rec-card" [id]="s.id" [poster]="s.poster" [rating]="s.rating" [date]="s.date" [genre]="s.genre" [length]="s.length" [mediaType]="s.mediaType" [imageUrl]="s.img" [title]="s.title"  [description]="s.description" *ngFor="let s of slides"/>
+      <app-main-rec-cards class="main-rec-card" [id]="s.id" [by]="s.by" [poster]="s.poster" [rating]="s.rating" [date]="s.date" [genre]="s.genre" [length]="s.length" [mediaType]="s.mediaType" [imageUrl]="s.img" [title]="s.title" [description]="s.description" *ngFor="let s of slides"/>
+      <app-main-rec-cards class="main-rec-card" [id]="s.id" [by]="s.by" [poster]="s.poster" [rating]="s.rating" [date]="s.date" [genre]="s.genre" [length]="s.length" [mediaType]="s.mediaType" [imageUrl]="s.img" [title]="s.title"  [description]="s.description" *ngFor="let s of slides"/>
     </div>
   </div>
   <div class="slider-sec-ind-wrapper">

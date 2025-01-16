@@ -17,6 +17,7 @@ export class MainRecCardsComponent {
   @Input() description = ''
   @Input() poster = ''
   @Input() rating = 0
+  @Input() by = ''
   state = false
   constructor(private router:Router) {
   }
