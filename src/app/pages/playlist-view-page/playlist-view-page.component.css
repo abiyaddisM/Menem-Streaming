@@ -15,7 +15,7 @@
   gap: 10px;
   margin: 0;
   overflow: hidden;
-  background: linear-gradient(to bottom right, purple, pink);
+  background: linear-gradient(to bottom right, #28d5ff, #3940b8);
 }
 
 @keyframes circle_wave {
@@ -35,7 +35,7 @@
   width: 15vw;
   height: 15vh;
   padding: 15vw;
-  background-color: rebeccapurple;
+  background-color: #337a99;
   transform-origin: bottom left;
   transform: skew(-10deg);
   opacity: 0.5;
@@ -44,7 +44,7 @@
 }
 
 .rectangle:nth-child(2) {
-  background-color: pink;
+  background-color: #321c76;
   transform: skew(-45deg) translateX(450px);
   animation: circle_wave 4s ease infinite;
 }
@@ -56,13 +56,13 @@
 }
 
 .rectangle:nth-child(4) {
-  background-color: purple;
+  background-color: #0aa667;
   transform: skew(-235deg) translateX(650px);
 
 }
 
 .rectangle:nth-child(5) {
-  background-color: lightpink;
+  background-color: #2d76ff;
   transform: skew(-25deg) translateX(-850px);
   animation: circle_wave 8s ease infinite;
 
