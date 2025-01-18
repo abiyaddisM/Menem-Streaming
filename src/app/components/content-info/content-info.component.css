@@ -1,0 +1,130 @@
+section{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  z-index:100;
+
+
+}
+section > div{
+  max-width:1000px;
+  display: flex;
+  color:white;
+  gap: 20px;
+  width: 100%;
+  margin: 0 20px;
+  /*height: fit-content;*/
+  background: rgba(35, 36, 43, 0.66);
+  backdrop-filter: blur(18px);
+  padding: 20px;
+  border-radius: 10px;
+  .close{
+    display:flex;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding:5px;
+    background: none;
+    border: none;
+    text-decoration: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 50%;
+    transition:.2s ease-in-out;
+
+    &:hover{
+      transition:.2s ease-in-out;
+      background: rgba(89, 93, 103, 0.66);
+
+    }
+    img{
+      width:14px;
+    }
+  }
+  .imageContainer{
+    border-radius:10px;
+    height: fit-content;
+    overflow: hidden;
+    width:300px;
+    aspect-ratio: 2/3;
+
+    img{
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .textContainer{
+    display:flex;
+    flex-direction: column;
+    gap:10px;
+    padding-top:10px;
+    height:100%;
+    width:100%;
+  }
+  .title{
+    font-size:32px;
+  }
+  .description{
+    font-size:16px;
+    font-weight:400;
+    color:#BABABA;
+    max-width:850px;
+    line-height: 1.5;
+  }
+  h2{
+    font-size:20px;
+    font-weight:500;
+    margin-top:10px
+  }
+  .networkContainer{
+    display:flex;
+    flex-wrap: wrap;
+    gap:10px;
+    .logoContainer{
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      min-width:200px;
+      background: rgba(239, 239, 239, 0.18);
+      width: fit-content;
+      height: 80px;
+      padding: 20px;
+      border-radius: 10px;
+      img{
+        height:100%;
+      }
+    }
+  }
+}
+@media (max-width: 800px) {
+  section > div {
+    flex-direction:column;
+    max-height: 90vh;
+    position:relative;
+    overflow:auto;
+    .imageContainer{
+      display:none;
+    }
+    .title{
+      font-size:24px;
+    }
+    .description{
+      font-size:14px;
+    }
+    h2{
+      font-size:16px;
+    }
+    .networkContainer{
+      .logoContainer{
+        height:60px;
+        min-width:160px
+      }
+    }
+  }
+}

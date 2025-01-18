@@ -1,8 +1,32 @@
-<section>
-  <div class="imageContainer">
-    <img [src]="'https://image.tmdb.org/t/p/w300/' +path" alt="">
-  </div>
-  <div>
+@if(state){
+  <section @fadeInOut (click)="onClose($event)">
+    <div>
+      <button class="close" (click)="onClose($event)">
+        <img  src="assets/Icons/close2.svg" alt="" (click)="onClose($event)">
+      </button>
 
-  </div>
-</section>
+      <div class="imageContainer">
+        <img [src]="'https://image.tmdb.org/t/p/w300/' +path" alt="">
+      </div>
+
+      <div class="textContainer">
+        <div>
+          <app-mini-info [rating]="rating" [miniInfo]="genre" [size]="14" [subtract]="1"/>
+        </div>
+        <h1 class="title">{{title}}</h1>
+        <p class="description">{{description}}</p>
+        <h2>Network</h2>
+        <div class="networkContainer">
+          @for (net of network; track net.id;let i = $index){
+            @if(i < 3){
+              <div class="logoContainer">
+                <img [src]="'https://image.tmdb.org/t/p/w300/' +net.logo_path" alt="">
+              </div>
+            }
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+}
