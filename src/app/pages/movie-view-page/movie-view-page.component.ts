@@ -103,7 +103,7 @@ export class MovieViewPageComponent {
   onDialogClose(){
     this.state = false
   }
-  infoState = true
+  infoState = false
 
   onInfoDialogOpen(){
     this.infoState = true
