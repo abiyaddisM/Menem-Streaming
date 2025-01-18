@@ -31,6 +31,7 @@ export class TvShowViewPageComponent implements OnInit{
   description = ''
   date = ''
   network = []
+  genre = []
   // @ts-ignore
   private routeSub: Subscription;
   constructor(private route: ActivatedRoute,
@@ -98,6 +99,7 @@ export class TvShowViewPageComponent implements OnInit{
         this.description = res.overview;
         this.date = res.first_air_date;
         this.network = res.networks;
+        this.genre = res.genres.map((res:any)=>res.id)
 
 
     })
@@ -126,6 +128,14 @@ export class TvShowViewPageComponent implements OnInit{
   }
   onDialogClose(){
     this.state = false
+  }
+  infoState = true
+
+  onInfoDialogOpen(){
+    this.infoState = true
+  }
+  onInfoDialogClose(){
+    this.infoState = false
   }
 
   protected readonly Number = Number;
