@@ -45,6 +45,7 @@ import {CreatePlaylistDialogComponent} from "./components/create-playlist-dialog
 import {PlaylistViewPageComponent} from "./pages/playlist-view-page/playlist-view-page.component";
 import {AddToPlaylistDialogComponent} from "./components/add-to-playlist-dialog/add-to-playlist-dialog.component";
 import {DropdownModule} from "primeng/dropdown";
+import {ContentInfoComponent} from "./components/content-info/content-info.component";
 const app = initializeApp(environment.firebase);
 
 export const analytics = getAnalytics(app);
@@ -80,7 +81,8 @@ export const analytics = getAnalytics(app);
     ConfirmDialogComponent,
     CreatePlaylistDialogComponent,
     PlaylistViewPageComponent,
-    AddToPlaylistDialogComponent
+    AddToPlaylistDialogComponent,
+    ContentInfoComponent
   ],
   bootstrap: [AppComponent],
 

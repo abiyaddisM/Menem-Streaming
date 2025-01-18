@@ -28,6 +28,9 @@ export class TvShowViewPageComponent implements OnInit{
   title = ''
   rating = 0
   poster = ''
+  description = ''
+  date = ''
+  network = []
   // @ts-ignore
   private routeSub: Subscription;
   constructor(private route: ActivatedRoute,
@@ -92,6 +95,11 @@ export class TvShowViewPageComponent implements OnInit{
         this.rating = Number(res.vote_average);
         this.title = this.checkTitle(res);
         this.poster = res.poster_path;
+        this.description = res.overview;
+        this.date = res.first_air_date;
+        this.network = res.networks;
+
+
     })
   }
   tvSeasonDetail(season:string,i:number){
