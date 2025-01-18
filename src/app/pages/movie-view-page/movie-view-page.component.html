@@ -10,9 +10,10 @@
 
        <div class="button-container">
          <app-transparent-button (click)="onDialogOpen()" text="Add Playlist" iconImg="assets/Icons/playlist.svg"></app-transparent-button>
-         <app-transparent-button  text="Information" iconImg="assets/Icons/info.svg"></app-transparent-button>
+         <app-transparent-button (click)="onInfoDialogOpen()"  text="Information" iconImg="assets/Icons/info.svg"></app-transparent-button>
        </div>
 
     </div>
 
 </div>
+<app-content-info type="movie" [state]="infoState" (stateChange)="onInfoDialogClose()" [title]="title" [genre]="genre" [description]="description" [path]="poster" [date]="date" [rating]="rating" [network]="network"/>

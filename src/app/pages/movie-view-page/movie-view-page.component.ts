@@ -33,7 +33,10 @@ export class MovieViewPageComponent {
   title = ''
   rating = 0
   poster = ''
-
+  description = ''
+  date = ''
+  network = []
+  genre = []
 
   constructor(private route: ActivatedRoute,
               private sanitizer: DomSanitizer,
@@ -70,6 +73,10 @@ export class MovieViewPageComponent {
       this.rating = Number(res.vote_average);
       this.title = this.checkTitle(res);
       this.poster = res.poster_path;
+      this.description = res.overview;
+      this.date = res.first_air_date;
+      this.network = res.production_companies;
+      this.genre = res.genres.map((res:any)=>res.id)
       this.searchHistory.addToHistory(res,'movie')
     })
   }
@@ -95,6 +102,14 @@ export class MovieViewPageComponent {
   }
   onDialogClose(){
     this.state = false
+  }
+  infoState = true
+
+  onInfoDialogOpen(){
+    this.infoState = true
+  }
+  onInfoDialogClose(){
+    this.infoState = false
   }
   protected readonly Array = Array;
 
