@@ -15,11 +15,11 @@
         </div>
         <h1 class="title">{{title}}</h1>
         <p class="description">{{description}}</p>
-        <h2>Network</h2>
+        <h2>{{ type === 'tv' ? 'Network' : 'Production Company' }}</h2>
         <div class="networkContainer">
           @for (net of network; track net.id;let i = $index){
             @if(i < 3){
-              <div class="logoContainer">
+              <div class="logoContainer" *ngIf="net.logo_path">
                 <img [src]="'https://image.tmdb.org/t/p/w300/' +net.logo_path" alt="">
               </div>
             }

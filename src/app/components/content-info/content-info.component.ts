@@ -15,7 +15,7 @@ export class ContentInfoComponent {
   @Input() date = '';
   @Input() network:any = [];
   @Input() genre:any;
-
+  @Input() type = ''
   @Input() state = true;
   @Output() stateChange = new EventEmitter();
   onClose(event: Event){

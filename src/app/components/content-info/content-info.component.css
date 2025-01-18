@@ -52,7 +52,7 @@ section > div{
     overflow: hidden;
     width:300px;
     aspect-ratio: 2/3;
-
+    background: #ededed;
     img{
       object-fit: cover;
       width: 100%;
