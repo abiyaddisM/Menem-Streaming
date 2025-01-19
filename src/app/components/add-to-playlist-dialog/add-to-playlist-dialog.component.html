@@ -16,7 +16,7 @@
       <div class="content-wrapper">
    @if(!isLoading){
      @for(i of data;track i.id){
-       <app-playlist-card (click)="addContent(i.id)"  [title]="i.title"></app-playlist-card>
+       <app-playlist-card (click)="addContent(i.id)"  [title]="i.title"/>
      }
      @if(data.length < 1){
        <div class="empty-container">
