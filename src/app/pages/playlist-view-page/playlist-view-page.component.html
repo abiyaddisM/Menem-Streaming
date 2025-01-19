@@ -110,3 +110,10 @@
   </div>
 
 </div>
+
+<div class="cover" @fadeInOut *ngIf="!isPublic">
+    <img src="assets/Icons/lock.svg" alt="">
+    <h1>Playlist Is Private</h1>
+    <p>Access the this playlist is restricted! Restrictions may be lifted by the owner</p>
+   <button routerLink="/home">Go Home</button>
+</div>
