@@ -3,11 +3,13 @@ import {PlaylistService} from "../../services/playlist-service/playlist.service"
 import {AuthService} from "../../services/auth-service/auth-service.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {DateConverter} from "../../functions/dateConversion";
+import {fadeInOut} from "../../animations/fade-animation";
 
 @Component({
   selector: 'app-playlist-view-page',
   templateUrl: './playlist-view-page.component.html',
-  styleUrl: './playlist-view-page.component.css'
+  styleUrl: './playlist-view-page.component.css',
+  animations:[fadeInOut]
 })
 
 export class PlaylistViewPageComponent implements OnInit {
@@ -26,6 +28,7 @@ export class PlaylistViewPageComponent implements OnInit {
   search = ''
   onSubscribeTimeout= false
   saveID = null
+  isPublic = true
 
 
 
@@ -48,15 +51,19 @@ export class PlaylistViewPageComponent implements OnInit {
     const playlistId = this.route.snapshot.paramMap.get('id');
     this.playlistService.getPlaylist(Number(playlistId), {userID:Number(this.authService.getUser())})
       .subscribe((res:any) =>{
-      this.isInfoLoading = false;
-      console.log();
-      const data = res.playlist[0]
-      this.isOwner = data.userid === this.authService.getUser();
-      this.title = data.title;
-      this.description = data.description;
-      this.username = data.username;
-      this.saveID = data.saveid
-      console.log(res)
+        this.isInfoLoading = false;
+        console.log();
+        const data = res.playlist[0]
+        this.isOwner = data.userid === this.authService.getUser();
+        if(!this.isOwner && !data.ispublic){
+          this.isContentLoading = false;
+          this.isPublic = data.ispublic;
+          return
+        }
+        this.title = data.title;        this.description = data.description;
+        this.username = data.username;
+        this.saveID = data.saveid
+        console.log(res)
         this.getPlaylistContent()
     })
   }
@@ -140,6 +147,8 @@ export class PlaylistViewPageComponent implements OnInit {
     return this.data.filter((item:any) => item.name.toLowerCase().includes(this.search.toLowerCase()));
   }
   onSubscribe(){
+    if(!this.isOwner && !this.isPublic)
+      return
     if(this.onSubscribeTimeout)
       return
     const playlistID = this.route.snapshot.paramMap.get('id');
