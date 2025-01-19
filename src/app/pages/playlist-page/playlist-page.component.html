@@ -5,10 +5,7 @@
     <h1>Your playlist</h1>
     <div class="button-container">
       <app-transparent-button *ngIf="isInSelectMode" text="Delete" iconImg="./assets/Icons/delete.svg" (click)="toggleDeleteState()" iconSize="16px"/>
-      @if(!isLoading){
         <app-transparent-button [text]="'Select'" [iconImg]="isInSelectMode ? './assets/Icons/tick-circle-active.svg' : './assets/Icons/tick-circle.svg'" (click)="toggleSelectMode()" iconSize="16px"/>
-
-      }
       <app-transparent-button text="Create Playlist" iconImg="./assets/Icons/add.svg" iconSize="15px" (click)="toggleCreatePlaylistState()"/>
 
     </div>
