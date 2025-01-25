@@ -22,7 +22,8 @@
         <label *ngIf="deviceService.isDesktop() && !authService.isLoggedIn()" for="nav-search">Ctrl + Space</label>
       </div>
       <a class="nav-profile" *ngIf="authService.isLoggedIn()" (click)="authService.logout()">
-        <img src="assets/Icons/profile-icon.svg" alt="">
+<!--        <img src="assets/Icons/profile-icon.svg" alt="">-->
+        <div></div>
         <h3>{{username}}</h3>
       </a>
     </div>

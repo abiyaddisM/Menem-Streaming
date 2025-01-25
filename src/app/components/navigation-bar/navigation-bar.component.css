@@ -81,6 +81,13 @@
   align-items: center;
   gap: 5px;
   cursor: pointer;
+  div{
+    width:32px;
+    border-radius: 50%;
+    aspect-ratio: 1 ;
+    background:linear-gradient(to bottom, #13548d, #82d1df);
+    border: 1px #c8c8c8 solid;
+  }
 }
 .nav-profile img{
   width: 30px;
